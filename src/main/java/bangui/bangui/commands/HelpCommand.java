@@ -16,13 +16,13 @@ public class HelpCommand implements CommandExecutor {
 
            if (p.isOp() == true){
 
-               p.sendMessage(ChatColor.GOLD + "BanGUI Plugin Help");
+               p.sendMessage(ChatColor.GOLD + "BanGUI Plugin Help -" + ChatColor.WHITE + " V0.4.6");
 
                p.sendMessage(ChatColor.RED + "Commands");
 
                p.sendMessage(ChatColor.WHITE + "/bangui");
                p.sendMessage(ChatColor.GRAY + "Opens the Ban GUI");
-               p.sendMessage(ChatColor.WHITE + "/help");
+               p.sendMessage(ChatColor.WHITE + "/bghelp");
                p.sendMessage(ChatColor.GRAY + "Shows all available commands");
 
            }else{
