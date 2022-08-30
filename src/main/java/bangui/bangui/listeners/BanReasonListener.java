@@ -20,11 +20,14 @@ public class BanReasonListener implements Listener {
 
         Player player = (Player) e.getWhoClicked();
 
-        if (e.getView().getTitle().equalsIgnoreCase(ChatColor.BLUE + "Player List")){
+        if (e.getView().getTitle().equalsIgnoreCase(ChatColor.RED + "Player List")){
 
             if (e.getCurrentItem().getType() == Material.PLAYER_HEAD){
 
-                Player whoToBan = BanGUI.getPlugin().getServer().getPlayerExact(ChatColor.stripColor(e.getCurrentItem().getItemMeta().getDisplayName()));
+                //Player whoToBan = BanGUI.getPlugin().getServer().getPlayerExact(ChatColor.stripColor(e.getCurrentItem().getItemMeta().getDisplayName()));
+
+                String whoToBan2 = e.getCurrentItem().getItemMeta().getDisplayName();
+                String whoToBan = whoToBan2;
 
                 if (e.getClick() == ClickType.LEFT){
 

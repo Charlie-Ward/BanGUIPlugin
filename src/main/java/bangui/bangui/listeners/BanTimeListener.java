@@ -51,8 +51,8 @@ public class BanTimeListener implements Listener{
             } else if (e.getCurrentItem().getType() == Material.BARRIER) {
 
                 player.closeInventory();
-            }
-        } e.setCancelled(true);
+            } e.setCancelled(true);
+        }
 
 
     }

@@ -45,7 +45,7 @@ public class BanMenuUtils {
 
 
         //Make and open the ban gui
-        Inventory bangui = Bukkit.createInventory(player, InvSize, ChatColor.BLUE + "Player List");
+        Inventory bangui = Bukkit.createInventory(player, InvSize, ChatColor.RED + "Player List");
 
         ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
         ItemMeta fMeta = filler.getItemMeta();
@@ -65,7 +65,7 @@ public class BanMenuUtils {
         ItemMeta cMeta = info.getItemMeta();
         cMeta.setDisplayName(ChatColor.RED + "Close");
         ArrayList<String> cLore = new ArrayList<>();
-        cLore.add(ChatColor.WHITE + "Close the current menu");
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
         cMeta.setLore(cLore);
         close.setItemMeta(cMeta);
 
@@ -147,6 +147,7 @@ public class BanMenuUtils {
         ItemMeta player_meta = playerHead.getItemMeta();
         player_meta.setDisplayName(banMe + "," + whyBanMe + "," + howLongToBanMe);
         ArrayList<String> PHlore = new ArrayList<>();
+        PHlore.add(banMe);
         PHlore.add(whyBanMe);
         PHlore.add(howLongToBanMe);
         player_meta.setLore(PHlore);
@@ -162,16 +163,19 @@ public class BanMenuUtils {
         //Cancel option
         ItemStack cancel = new ItemStack(Material.BARRIER, 1);
         ItemMeta cancel_meta = cancel.getItemMeta();
-        cancel_meta.setDisplayName(ChatColor.RED + "Go Back!");
+        cancel_meta.setDisplayName(ChatColor.RED + "Close");
         cancel.setItemMeta(cancel_meta);
+        ArrayList<String> cLore = new ArrayList<>();
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
+        cancel_meta.setLore(cLore);
         banPlayerMenu.setItem(8, cancel);
 
         player1.openInventory(banPlayerMenu);
     }
 
-    public static void BanReasonMenu (Player player1, Player whoToBan){
+    public static void BanReasonMenu (Player player1, String whoToBan){
 
-        Player banMe = whoToBan;
+        String banMe = whoToBan;
 
         Inventory ReasonToBanMenu = Bukkit.createInventory(player1, 45, ChatColor.RED + "Reason For Ban");
 
@@ -192,31 +196,54 @@ public class BanMenuUtils {
         ItemStack back = new ItemStack(Material.BARRIER);
         ItemMeta bMeta = back.getItemMeta();
         bMeta.setDisplayName(ChatColor.RED + "Close");
+        ArrayList<String> cLore = new ArrayList<>();
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
+        bMeta.setLore(cLore);
         back.setItemMeta(bMeta);
 
         ItemStack HarassmentItem = new ItemStack(Material.BEDROCK);
         ItemMeta hMeta = HarassmentItem.getItemMeta();
-        hMeta.setDisplayName(banMe.getDisplayName() + ",Harassing a player or Staff Member");
+        hMeta.setDisplayName(banMe + ",Harassing a player or Staff Member");
+        ArrayList<String> hLore = new ArrayList<>();
+        hLore.add(String.valueOf(banMe));
+        hLore.add(ChatColor.LIGHT_PURPLE + "Harassing a player or staff member");
+        hMeta.setLore(hLore);
         HarassmentItem.setItemMeta(hMeta);
 
         ItemStack XrayItem = new ItemStack(Material.WOODEN_PICKAXE);
         ItemMeta xMeta = XrayItem.getItemMeta();
-        xMeta.setDisplayName(banMe.getDisplayName() + ",Using X-Ray Hacks");
+        xMeta.setDisplayName(banMe + ",Using X-Ray Hacks");
+        ArrayList<String> xLore = new ArrayList<>();
+        xLore.add(String.valueOf(banMe));
+        xLore.add(ChatColor.LIGHT_PURPLE + "Using X-Ray Hacks");
+        xMeta.setLore(xLore);
         XrayItem.setItemMeta(xMeta);
 
         ItemStack CombatItem = new ItemStack(Material.WOODEN_SWORD);
         ItemMeta cMeta = CombatItem.getItemMeta();
-        cMeta.setDisplayName(banMe.getDisplayName() + ",Using Combat Hacks");
+        cMeta.setDisplayName(banMe + ",Using Combat Hacks");
+        ArrayList<String> coLore = new ArrayList<>();
+        coLore.add(String.valueOf(banMe));
+        coLore.add(ChatColor.LIGHT_PURPLE + "Using Combat Hacks");
+        cMeta.setLore(coLore);
         CombatItem.setItemMeta(cMeta);
 
         ItemStack beItem = new ItemStack(Material.DARK_OAK_DOOR);
         ItemMeta beMeta = beItem.getItemMeta();
-        beMeta.setDisplayName(banMe.getDisplayName() + ",Ban Evasion");
+        beMeta.setDisplayName(banMe + ",Ban Evasion");
+        ArrayList<String> beLore = new ArrayList<>();
+        beLore.add(String.valueOf(banMe));
+        beLore.add(ChatColor.LIGHT_PURPLE + "Ban Evasion");
+        beMeta.setLore(beLore);
         beItem.setItemMeta(beMeta);
 
         ItemStack oItem = new ItemStack(Material.OAK_SIGN);
         ItemMeta oMeta = oItem.getItemMeta();
-        oMeta.setDisplayName(banMe.getDisplayName() + ",Other please ask staff for further details");
+        oMeta.setDisplayName(banMe + ",Other please ask staff for further details");
+        ArrayList<String> oLore = new ArrayList<>();
+        oLore.add(String.valueOf(banMe));
+        oLore.add(ChatColor.LIGHT_PURPLE + "Other please ask staff for further details");
+        oMeta.setLore(oLore);
         oItem.setItemMeta(oMeta);
 
         //Line 1
@@ -311,36 +338,69 @@ public class BanMenuUtils {
         ItemStack close = new ItemStack(Material.BARRIER);
         ItemMeta bMeta = close.getItemMeta();
         bMeta.setDisplayName(ChatColor.RED + "Close");
+        ArrayList<String> cLore = new ArrayList<>();
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
+        bMeta.setLore(cLore);
         close.setItemMeta(bMeta);
 
         ItemStack hour = new ItemStack(Material.CLOCK);
         ItemMeta hMeta = hour.getItemMeta();
         hMeta.setDisplayName(banMe + "," + whyBanMe + ",1 hour");
+        ArrayList<String> hLore = new ArrayList<>();
+        hLore.add(banMe);
+        hLore.add(whyBanMe);
+        hLore.add(ChatColor.LIGHT_PURPLE + "1 hour");
+        hMeta.setLore(hLore);
         hour.setItemMeta(hMeta);
 
         ItemStack day = new ItemStack(Material.CLOCK);
         ItemMeta dMeta = day.getItemMeta();
         dMeta.setDisplayName(banMe + "," + whyBanMe + ",1 day");
+        ArrayList<String> dLore = new ArrayList<>();
+        dLore.add(banMe);
+        dLore.add(whyBanMe);
+        dLore.add(ChatColor.LIGHT_PURPLE + "1 day");
+        dMeta.setLore(dLore);
         day.setItemMeta(dMeta);
 
         ItemStack week = new ItemStack(Material.CLOCK);
         ItemMeta wMeta = week.getItemMeta();
         wMeta.setDisplayName(banMe + "," + whyBanMe + ",1 week");
+        ArrayList<String> wLore = new ArrayList<>();
+        wLore.add(banMe);
+        wLore.add(whyBanMe);
+        wLore.add(ChatColor.LIGHT_PURPLE + "1 week");
+        wMeta.setLore(wLore);
         week.setItemMeta(wMeta);
 
         ItemStack month = new ItemStack(Material.CLOCK);
         ItemMeta mMeta = month.getItemMeta();
         mMeta.setDisplayName(banMe + "," + whyBanMe + ",1 month");
+        ArrayList<String> mLore = new ArrayList<>();
+        mLore.add(banMe);
+        mLore.add(whyBanMe);
+        mLore.add(ChatColor.LIGHT_PURPLE + "1 month");
+        mMeta.setLore(mLore);
         month.setItemMeta(mMeta);
 
         ItemStack year = new ItemStack(Material.CLOCK);
         ItemMeta yMeta = year.getItemMeta();
         yMeta.setDisplayName(banMe + "," + whyBanMe + ",1 year");
+        ArrayList<String> yLore = new ArrayList<>();
+        yLore.add(banMe);
+        yLore.add(whyBanMe);
+        yLore.add(ChatColor.LIGHT_PURPLE + "1 year");
+        yMeta.setLore(yLore);
         year.setItemMeta(yMeta);
 
         ItemStack permanent = new ItemStack(Material.CLOCK);
         ItemMeta peMeta = permanent.getItemMeta();
         peMeta.setDisplayName(banMe + "," + whyBanMe + ",Permanently");
+        ArrayList<String> peLore = new ArrayList<>();
+        peLore.add(banMe);
+        peLore.add(whyBanMe);
+        peLore.add(ChatColor.LIGHT_PURPLE + "1 hour");
+        peMeta.setLore(peLore);
         permanent.setItemMeta(peMeta);
 
         //Line 1
