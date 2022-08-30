@@ -37,6 +37,10 @@ public class BanReasonListener implements Listener {
 
                     player.closeInventory();
 
+                } else if (e.getCurrentItem().getType() == Material.OAK_DOOR) {
+
+                    BanMenuUtils.StaffMainMenu(player);
+
                 }
                 e.setCancelled(true);
             }

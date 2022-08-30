@@ -3,6 +3,7 @@ package bangui.bangui.utils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -61,6 +62,14 @@ public class BanMenuUtils {
         pMeta.setLore(pLore);
         info.setItemMeta(pMeta);
 
+        ItemStack home = new ItemStack(Material.OAK_DOOR, 1);
+        ItemMeta hMeta = home.getItemMeta();
+        hMeta.setDisplayName(ChatColor.GOLD + "Staff Home");
+        ArrayList<String> hLore = new ArrayList<>();
+        hLore.add(ChatColor.LIGHT_PURPLE + "Go back to the staff home");
+        hMeta.setLore(hLore);
+        home.setItemMeta(hMeta);
+
         ItemStack close = new ItemStack(Material.BARRIER, 1);
         ItemMeta cMeta = info.getItemMeta();
         cMeta.setDisplayName(ChatColor.RED + "Close");
@@ -75,7 +84,7 @@ public class BanMenuUtils {
 
         bangui.setItem(3, info);
 
-        bangui.setItem(4, filler);
+        bangui.setItem(4, home);
 
         bangui.setItem(5, close);
 
@@ -461,4 +470,211 @@ public class BanMenuUtils {
 
     }
 
+    public static void StaffMainMenu (Player player1){
+
+        Inventory StaffMenu = Bukkit.createInventory(player1, 36, ChatColor.GOLD + "Staff Menu");
+
+        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS);
+        ItemMeta fMeta = filler.getItemMeta();
+        fMeta.setDisplayName("");
+
+        ItemStack info = new ItemStack(Material.PAPER);
+        ItemMeta pMeta = info.getItemMeta();
+        pMeta.setDisplayName(ChatColor.GOLD + "Staff Home");
+        ArrayList<String> pLore = new ArrayList<>();
+        pLore.add(ChatColor.LIGHT_PURPLE + "The homepage for the BanGUI plugin");
+        pMeta.setLore(pLore);
+        info.setItemMeta(pMeta);
+
+        ItemStack close = new ItemStack(Material.BARRIER);
+        ItemMeta cMeta = info.getItemMeta();
+        cMeta.setDisplayName(ChatColor.GOLD + "Close");
+        ArrayList<String> cLore = new ArrayList<>();
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
+        cMeta.setLore(cLore);
+        close.setItemMeta(cMeta);
+
+        ItemStack banGUI = new ItemStack(Material.IRON_DOOR);
+        ItemMeta bMeta = banGUI.getItemMeta();
+        bMeta.setDisplayName(ChatColor.GOLD + "BanGUI");
+        ArrayList<String> bLore = new ArrayList<>();
+        bLore.add(ChatColor.LIGHT_PURPLE + "Opens the BanGUI menu");
+        bMeta.setLore(bLore);
+        banGUI.setItemMeta(bMeta);
+
+        ItemStack onlinePlayers = new ItemStack(Material.GREEN_DYE);
+        ItemMeta opMeta = onlinePlayers.getItemMeta();
+        opMeta.setDisplayName(ChatColor.GOLD + "Online Players");
+        ArrayList<String> opLore = new ArrayList<>();
+        opLore.add(ChatColor.LIGHT_PURPLE + "Shows online players");
+        opMeta.setLore(opLore);
+        onlinePlayers.setItemMeta(opMeta);
+
+        ItemStack vanish = new ItemStack(Material.WHITE_DYE);
+        ItemMeta vMeta = vanish.getItemMeta();
+        vMeta.setDisplayName(ChatColor.GOLD + "Vanish");
+        ArrayList<String> vLore = new ArrayList<>();
+        vLore.add(ChatColor.LIGHT_PURPLE + "Coming Soon");
+        vMeta.setLore(vLore);
+        onlinePlayers.setItemMeta(vMeta);
+
+        ItemStack opPlayers = new ItemStack(Material.COMMAND_BLOCK);
+        ItemMeta oMeta = opPlayers.getItemMeta();
+        oMeta.setDisplayName(ChatColor.GOLD + "Online Staff");
+        ArrayList<String> oLore = new ArrayList<>();
+        oLore.add(ChatColor.LIGHT_PURPLE + "Shows online staff member");
+        oMeta.setLore(oLore);
+        opPlayers.setItemMeta(oMeta);
+
+        //Line 1
+        StaffMenu.setItem(0, filler);
+        StaffMenu.setItem(1, filler);
+        StaffMenu.setItem(2, info);
+
+        StaffMenu.setItem(3, filler);
+        StaffMenu.setItem(4, filler);
+        StaffMenu.setItem(5, filler);
+
+        StaffMenu.setItem(6, close);
+        StaffMenu.setItem(7, filler);
+        StaffMenu.setItem(8, filler);
+
+        //Line 2
+        StaffMenu.setItem(9, filler);
+        StaffMenu.setItem(10, filler);
+        StaffMenu.setItem(11, filler);
+        StaffMenu.setItem(12, banGUI);
+
+        StaffMenu.setItem(13, filler);
+
+        StaffMenu.setItem(14, onlinePlayers);
+        StaffMenu.setItem(15, filler);
+        StaffMenu.setItem(16, filler);
+        StaffMenu.setItem(17, filler);
+
+        //Line 3
+
+        StaffMenu.setItem(18, filler);
+        StaffMenu.setItem(19, filler);
+        StaffMenu.setItem(20, vanish);
+
+        StaffMenu.setItem(21, filler);
+        StaffMenu.setItem(22, filler);
+        StaffMenu.setItem(23, filler);
+
+        StaffMenu.setItem(24, opPlayers);
+        StaffMenu.setItem(25, filler);
+        StaffMenu.setItem(26, filler);
+
+        //Line 4
+
+        StaffMenu.setItem(27, filler);
+        StaffMenu.setItem(28, filler);
+        StaffMenu.setItem(29, filler);
+
+        StaffMenu.setItem(30, filler);
+        StaffMenu.setItem(31, filler);
+        StaffMenu.setItem(32, filler);
+
+        StaffMenu.setItem(33, filler);
+        StaffMenu.setItem(34, filler);
+        StaffMenu.setItem(35, filler);
+
+        player1.openInventory(StaffMenu);
+
+    }
+
+    public static void onlinePlayers(Player player){
+
+        //Get a list of players on the server
+        ArrayList<Player> list = new ArrayList<Player>(player.getServer().getOnlinePlayers());
+
+        float LAmount = list.size() / 9;
+        int LAmountR = Math.round(LAmount);
+
+        int PlayerSize = LAmountR;
+
+        int InvSize = 0;
+
+        if (PlayerSize <= 9){
+
+            InvSize = 18;
+
+        } else if (PlayerSize >= 10) {
+
+            if (PlayerSize >= 46){
+
+                player.sendMessage(ChatColor.RED + "Too many players online please ban through commands");
+                InvSize = 0;
+
+            }else{
+
+                InvSize = PlayerSize + 9;
+
+            }
+        }
+
+
+        //Make and open the ban gui
+        Inventory onlinePlayers = Bukkit.createInventory(player, InvSize, ChatColor.GOLD + "Player List");
+
+        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
+        ItemMeta fMeta = filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        filler.setItemMeta(fMeta);
+
+        ItemStack info = new ItemStack(Material.PAPER, 1);
+        ItemMeta pMeta = info.getItemMeta();
+        pMeta.setDisplayName(ChatColor.GOLD + "Online Players Info");
+        ArrayList<String> pLore = new ArrayList<>();
+        pLore.add(ChatColor.LIGHT_PURPLE + "Shows all online players left click to teleport to them");
+        pMeta.setLore(pLore);
+        info.setItemMeta(pMeta);
+
+        ItemStack home = new ItemStack(Material.OAK_DOOR, 1);
+        ItemMeta hMeta = home.getItemMeta();
+        hMeta.setDisplayName(ChatColor.GOLD + "Staff Home");
+        ArrayList<String> hLore = new ArrayList<>();
+        hLore.add(ChatColor.LIGHT_PURPLE + "Go back to the staff home");
+        hMeta.setLore(hLore);
+        home.setItemMeta(hMeta);
+
+
+        ItemStack close = new ItemStack(Material.BARRIER, 1);
+        ItemMeta cMeta = info.getItemMeta();
+        cMeta.setDisplayName(ChatColor.RED + "Close");
+        ArrayList<String> cLore = new ArrayList<>();
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
+        cMeta.setLore(cLore);
+        close.setItemMeta(cMeta);
+
+        onlinePlayers.setItem(0, filler);
+        onlinePlayers.setItem(1, filler);
+        onlinePlayers.setItem(2, filler);
+
+        onlinePlayers.setItem(3, info);
+
+        onlinePlayers.setItem(4, home);
+
+        onlinePlayers.setItem(5, close);
+
+        onlinePlayers.setItem(6, filler);
+        onlinePlayers.setItem(7, filler);
+        onlinePlayers.setItem(8, filler);
+
+        //For every player, add their name to gui
+        for (int i = 0; i < list.size(); i++){
+            ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD, 1);
+            ItemMeta meta = playerHead.getItemMeta();
+            //Set player info on the item
+            meta.setDisplayName(list.get(i).getDisplayName());
+            playerHead.setItemMeta(meta);
+            //Add player head to gui
+
+            onlinePlayers.addItem(playerHead);
+
+        }
+        player.openInventory(onlinePlayers);
+
+    }
 }
