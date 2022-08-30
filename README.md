@@ -8,6 +8,10 @@
 ###### /help - shows available commands
 ###### /bangui - shows the banGUI
 
+## Other Links
+
+###### https://www.spigotmc.org/resources/bangui.104948/ - Plugin on the spigot website
+
 ## Authors
 
 ###### This plugin was created by me if there are any bugs please let me know
