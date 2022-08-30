@@ -4,3 +4,8 @@ main: bangui.bangui.BanGUI
 api-version: 1.17
 authors: [ LousyBoi ]
 description: A simple BanGUI plugin for your spigot server
+commands:
+  bangui:
+    description: Open the BanGUI menu
+  BGhelp:
+    description: show a list of commands
