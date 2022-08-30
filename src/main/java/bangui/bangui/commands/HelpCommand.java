@@ -16,7 +16,7 @@ public class HelpCommand implements CommandExecutor {
 
            if (p.isOp() == true){
 
-               p.sendMessage(ChatColor.GOLD + "BanGUI Plugin Help -" + ChatColor.WHITE + " V0.4.6");
+               p.sendMessage(ChatColor.GOLD + "BanGUI Plugin Help -" + ChatColor.WHITE + " V0.4.6.1");
 
                p.sendMessage(ChatColor.RED + "Commands");
 

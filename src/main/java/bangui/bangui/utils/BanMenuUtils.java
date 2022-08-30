@@ -48,6 +48,9 @@ public class BanMenuUtils {
         Inventory bangui = Bukkit.createInventory(player, InvSize, ChatColor.BLUE + "Player List");
 
         ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
+        ItemMeta fMeta = filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        filler.setItemMeta(fMeta);
 
         ItemStack info = new ItemStack(Material.PAPER, 1);
         ItemMeta pMeta = info.getItemMeta();
@@ -122,6 +125,9 @@ public class BanMenuUtils {
         //Create Filler thing
 
         ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
+        ItemMeta fMeta = filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        filler.setItemMeta(fMeta);
 
         //Ban Option
         ItemStack ban = new ItemStack(Material.WOODEN_AXE, 1);
@@ -170,6 +176,9 @@ public class BanMenuUtils {
         Inventory ReasonToBanMenu = Bukkit.createInventory(player1, 45, ChatColor.RED + "Reason For Ban");
 
         ItemStack Filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+        ItemMeta fMeta = Filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        Filler.setItemMeta(fMeta);
 
         ItemStack info = new ItemStack(Material.PAPER);
         ItemMeta pMeta = info.getItemMeta();
@@ -286,6 +295,9 @@ public class BanMenuUtils {
         Inventory timeToBanMenu = Bukkit.createInventory(player1, 36, ChatColor.RED + "Ban Time");
 
         ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+        ItemMeta fMeta = filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        filler.setItemMeta(fMeta);
 
         ItemStack info = new ItemStack(Material.PAPER);
         ItemMeta pMeta = info.getItemMeta();

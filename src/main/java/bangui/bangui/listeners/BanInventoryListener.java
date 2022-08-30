@@ -62,52 +62,45 @@ public class BanInventoryListener implements Listener {
             String whyToBan = splitString[1];
             String howLongToBan = splitString[2];
 
+            //Date timeToBeBanned;
+
             String playerName = String.valueOf(player);
 
             if (e.getCurrentItem().getType() == Material.WOODEN_AXE) {
-                if (splitString[2] == "1 hour"){
+                Date timeToBeBanned = null;
 
-                    player.sendMessage("Trying to ban player");
-                    player.getServer().getBanList(BanList.Type.NAME).addBan(whoToBan, whyToBan, new Date(System.currentTimeMillis() + 3600000), playerName);
-                    player.sendMessage(ChatColor.GREEN + "Banned Player");
-
-                    player.closeInventory();
-                } else if (splitString[2] == "1 day") {
-
-                    player.getServer().getBanList(BanList.Type.NAME).addBan(whoToBan, whyToBan, new Date(System.currentTimeMillis() + 86400000), playerName);
-                    player.sendMessage(ChatColor.GREEN + "Banned Player");
-
-                    player.closeInventory();
-
-                } else if (splitString[2] == "1 week") {
-
-                    player.getServer().getBanList(BanList.Type.NAME).addBan(whoToBan, whyToBan, new Date(System.currentTimeMillis() + 604800000), playerName);
-                    player.sendMessage(ChatColor.GREEN + "Banned Player");
-
-                    player.closeInventory();
-
-                } else if (splitString[2] == "1 month") {
-
-                    player.getServer().getBanList(BanList.Type.NAME).addBan(whoToBan, whyToBan, new Date(System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 30)), playerName);
-                    player.sendMessage(ChatColor.GREEN + "Banned Player");
-
-                    player.closeInventory();
-
-                } else if (splitString[2] == "1 year") {
-
-                    player.getServer().getBanList(BanList.Type.NAME).addBan(whoToBan, whyToBan, new Date(System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 365)), playerName);
-                    player.sendMessage(ChatColor.GREEN + "Banned Player");
-
-                    player.closeInventory();
-
-                } else if (splitString[2] == "Permanently"){
-
-                    player.getServer().getBanList(BanList.Type.NAME).addBan(whoToBan, whyToBan, null, playerName);
-                    player.sendMessage(ChatColor.GREEN + "Banned Player");
-
-                    player.closeInventory();
-
+                switch(splitString[2]){
+                    case "1 hour":
+                        timeToBeBanned = new Date(System.currentTimeMillis() + 3600000);
+                        player.sendMessage("Set to 1 hour");
+                        break;
+                    case "1 day":
+                        timeToBeBanned = new Date(System.currentTimeMillis() + 86400000);
+                        player.sendMessage("Set to 1 day");
+                        break;
+                    case "1 week":
+                        timeToBeBanned = new Date(System.currentTimeMillis() + 604800000);
+                        player.sendMessage("Set to 1 week");
+                        break;
+                    case "1 month":
+                        timeToBeBanned = new Date(System.currentTimeMillis() + (1000L * 60 * 60 * 24 * 30));
+                        player.sendMessage("Set to 1 month");
+                        break;
+                    case "1 year":
+                        timeToBeBanned = new Date(System.currentTimeMillis() + (1000L * 60 * 60 * 24 * 365));
+                        player.sendMessage("Set to 1 year");
+                        break;
+                    case "Permanently":
+                        timeToBeBanned = null;
+                        player.sendMessage("Set to 1 permanently");
+                        break;
                 }
+
+            player.sendMessage("Trying to ban player");
+            player.getServer().getBanList(BanList.Type.NAME).addBan(whoToBan, whyToBan, timeToBeBanned, playerName);
+            player.sendMessage(ChatColor.GREEN + "Banned Player");
+
+            player.closeInventory();
 
             } else if (e.getCurrentItem().getType() == Material.BARRIER) {
 
