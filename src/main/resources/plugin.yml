@@ -1,0 +1,6 @@
+name: BanGUI
+version: '${project.version}'
+main: bangui.bangui.BanGUI
+api-version: 1.17
+authors: [ LousyBoi ]
+description: A simple BanGUI plugin for your spigot server
