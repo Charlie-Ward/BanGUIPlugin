@@ -8,6 +8,6 @@
 ###### /help - shows available commands
 ###### /bangui - shows the banGUI
 
-##Authors
+## Authors
 
 ###### This plugin was created by me if there are any bugs please let me know
