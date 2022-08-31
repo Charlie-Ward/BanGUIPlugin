@@ -474,7 +474,7 @@ public class BanMenuUtils {
 
         Inventory StaffMenu = Bukkit.createInventory(player1, 36, ChatColor.GOLD + "Staff Menu");
 
-        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS);
+        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
         ItemMeta fMeta = filler.getItemMeta();
         fMeta.setDisplayName("");
 
@@ -510,13 +510,13 @@ public class BanMenuUtils {
         opMeta.setLore(opLore);
         onlinePlayers.setItemMeta(opMeta);
 
-        ItemStack vanish = new ItemStack(Material.WHITE_DYE);
+        ItemStack vanish = new ItemStack(Material.WHITE_CONCRETE);
         ItemMeta vMeta = vanish.getItemMeta();
         vMeta.setDisplayName(ChatColor.GOLD + "Vanish");
         ArrayList<String> vLore = new ArrayList<>();
         vLore.add(ChatColor.LIGHT_PURPLE + "Coming Soon");
         vMeta.setLore(vLore);
-        onlinePlayers.setItemMeta(vMeta);
+        vanish.setItemMeta(vMeta);
 
         ItemStack opPlayers = new ItemStack(Material.COMMAND_BLOCK);
         ItemMeta oMeta = opPlayers.getItemMeta();
@@ -565,20 +565,6 @@ public class BanMenuUtils {
         StaffMenu.setItem(24, opPlayers);
         StaffMenu.setItem(25, filler);
         StaffMenu.setItem(26, filler);
-
-        //Line 4
-
-        StaffMenu.setItem(27, filler);
-        StaffMenu.setItem(28, filler);
-        StaffMenu.setItem(29, filler);
-
-        StaffMenu.setItem(30, filler);
-        StaffMenu.setItem(31, filler);
-        StaffMenu.setItem(32, filler);
-
-        StaffMenu.setItem(33, filler);
-        StaffMenu.setItem(34, filler);
-        StaffMenu.setItem(35, filler);
 
         player1.openInventory(StaffMenu);
 
