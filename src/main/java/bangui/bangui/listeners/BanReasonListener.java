@@ -33,16 +33,15 @@ public class BanReasonListener implements Listener {
 
                     BanMenuUtils.BanReasonMenu(player, whoToBan);
 
-                }else if (e.getCurrentItem().getType() == Material.BARRIER){
-
-                    player.closeInventory();
-
-                } else if (e.getCurrentItem().getType() == Material.OAK_DOOR) {
-
-                    BanMenuUtils.StaffMainMenu(player);
-
                 }
-                e.setCancelled(true);
+            }else if (e.getCurrentItem().getType() == Material.BARRIER){
+
+                player.closeInventory();
+
+            } else if (e.getCurrentItem().getType() == Material.OAK_DOOR) {
+
+                BanMenuUtils.StaffMainMenu(player);
+
             }
             e.setCancelled(true);
         }

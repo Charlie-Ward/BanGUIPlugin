@@ -2,6 +2,7 @@ package bangui.bangui;
 
 import bangui.bangui.commands.BanGUICommand;
 import bangui.bangui.commands.HelpCommand;
+import bangui.bangui.commands.OnlinePlayersCommand;
 import bangui.bangui.commands.StaffGUICommand;
 import bangui.bangui.listeners.*;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,6 +20,7 @@ public final class BanGUI extends JavaPlugin {
         getCommand("bangui").setExecutor(new BanGUICommand());
         getCommand("BGhelp").setExecutor(new HelpCommand());
         getCommand("Staff").setExecutor(new StaffGUICommand());
+        getCommand("onlineplayers").setExecutor(new OnlinePlayersCommand());
 
         getServer().getPluginManager().registerEvents(new BanInventoryListener(), this);
         getServer().getPluginManager().registerEvents(new BanReasonListener(), this);

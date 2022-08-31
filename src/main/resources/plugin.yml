@@ -11,3 +11,5 @@ commands:
     description: show a list of commands
   Staff:
     description: Opens the staff menu
+  onlineplayers:
+    description: Opens a list of online players

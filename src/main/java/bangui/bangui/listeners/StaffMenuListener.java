@@ -32,11 +32,7 @@ public class StaffMenuListener implements Listener {
 
             }else if (e.getCurrentItem().getType() == Material.GREEN_DYE){
 
-                if (e.getClick() == ClickType.LEFT){
-
                     BanMenuUtils.onlinePlayers(player);
-
-                }
 
             }
 

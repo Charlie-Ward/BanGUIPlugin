@@ -472,7 +472,7 @@ public class BanMenuUtils {
 
     public static void StaffMainMenu (Player player1){
 
-        Inventory StaffMenu = Bukkit.createInventory(player1, 36, ChatColor.GOLD + "Staff Menu");
+        Inventory StaffMenu = Bukkit.createInventory(player1, 27, ChatColor.GOLD + "Staff Menu");
 
         ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
         ItemMeta fMeta = filler.getItemMeta();
@@ -541,29 +541,29 @@ public class BanMenuUtils {
 
         //Line 2
         StaffMenu.setItem(9, filler);
-        StaffMenu.setItem(10, filler);
+        StaffMenu.setItem(10, banGUI);
         StaffMenu.setItem(11, filler);
-        StaffMenu.setItem(12, banGUI);
+        StaffMenu.setItem(12, filler);
 
         StaffMenu.setItem(13, filler);
 
-        StaffMenu.setItem(14, onlinePlayers);
+        StaffMenu.setItem(14, filler);
         StaffMenu.setItem(15, filler);
-        StaffMenu.setItem(16, filler);
+        StaffMenu.setItem(16, onlinePlayers);
         StaffMenu.setItem(17, filler);
 
         //Line 3
 
         StaffMenu.setItem(18, filler);
-        StaffMenu.setItem(19, filler);
-        StaffMenu.setItem(20, vanish);
+        StaffMenu.setItem(19, vanish);
+        StaffMenu.setItem(20, filler);
 
         StaffMenu.setItem(21, filler);
         StaffMenu.setItem(22, filler);
         StaffMenu.setItem(23, filler);
 
-        StaffMenu.setItem(24, opPlayers);
-        StaffMenu.setItem(25, filler);
+        StaffMenu.setItem(24, filler);
+        StaffMenu.setItem(25, opPlayers);
         StaffMenu.setItem(26, filler);
 
         player1.openInventory(StaffMenu);
@@ -614,6 +614,7 @@ public class BanMenuUtils {
         pMeta.setDisplayName(ChatColor.GOLD + "Online Players Info");
         ArrayList<String> pLore = new ArrayList<>();
         pLore.add(ChatColor.LIGHT_PURPLE + "Shows all online players left click to teleport to them");
+        pLore.add(ChatColor.LIGHT_PURPLE + "Right click to teleport and be put into spectator");
         pMeta.setLore(pLore);
         info.setItemMeta(pMeta);
 
@@ -654,6 +655,9 @@ public class BanMenuUtils {
             ItemMeta meta = playerHead.getItemMeta();
             //Set player info on the item
             meta.setDisplayName(list.get(i).getDisplayName());
+            ArrayList<String> phLore = new ArrayList<>();
+            phLore.add(ChatColor.GOLD + "Is player op: " + ChatColor.LIGHT_PURPLE + list.get(i).isOp());
+            meta.setLore(phLore);
             playerHead.setItemMeta(meta);
             //Add player head to gui
 

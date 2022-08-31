@@ -88,11 +88,22 @@ public class BanInventoryListener implements Listener {
                 }
 
                 player.getServer().getBanList(BanList.Type.NAME).addBan(whoToBan, whyToBan, timeToBeBanned, playerName);
-            player.sendMessage(ChatColor.GREEN + "Banned Player");
 
-            ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
-            String command = "kick " + whoToBan + " You have been banned please relog to find out more information";
-            Bukkit.dispatchCommand(console, command);
+
+            for (Player all : Bukkit.getServer().getOnlinePlayers()){
+
+                if (all.isOp()) {
+
+                    all.sendMessage(ChatColor.RED + "Banned Player: " + whoToBan + " for: " + whyToBan + " for: " + timeToBeBanned + " by: " + playerName);
+
+                }
+
+            }
+
+
+            //ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+            //String command = "kick " + whoToBan + " You have been banned please relog to find out more information";
+            //Bukkit.dispatchCommand(console, command);
 
             player.closeInventory();
 

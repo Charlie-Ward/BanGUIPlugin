@@ -16,7 +16,7 @@ public class HelpCommand implements CommandExecutor {
 
            if (p.isOp() == true){
 
-               p.sendMessage(ChatColor.GOLD + "BanGUI Plugin Help -" + ChatColor.WHITE + " V1.1");
+               p.sendMessage(ChatColor.GOLD + "BanGUI Plugin Help -" + ChatColor.WHITE + " V1.1.1");
 
                p.sendMessage(ChatColor.RED + "Commands");
 
@@ -24,6 +24,8 @@ public class HelpCommand implements CommandExecutor {
                p.sendMessage(ChatColor.GRAY + "Opens the staff menu");
                p.sendMessage(ChatColor.WHITE + "/bangui");
                p.sendMessage(ChatColor.GRAY + "Opens the Ban GUI");
+               p.sendMessage(ChatColor.WHITE + "/onlineplayers");
+               p.sendMessage(ChatColor.GRAY + "Show a list of all online players");
                p.sendMessage(ChatColor.WHITE + "/bghelp");
                p.sendMessage(ChatColor.GRAY + "Shows all available commands");
 
