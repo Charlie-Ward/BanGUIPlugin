@@ -13,3 +13,5 @@ commands:
     description: Opens the staff menu
   onlineplayers:
     description: Opens a list of online players
+  checktopplayers:
+    description: Check the players who can see the OP players in the ban and kick menus

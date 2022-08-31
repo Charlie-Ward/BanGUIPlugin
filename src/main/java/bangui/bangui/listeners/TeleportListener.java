@@ -15,6 +15,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 
 public class TeleportListener implements Listener {
 
+    @EventHandler
     public void onMenuClick(InventoryClickEvent e){
 
         Player player = (Player) e.getWhoClicked();
@@ -23,17 +24,14 @@ public class TeleportListener implements Listener {
 
             if (e.getCurrentItem().getType() == Material.PLAYER_HEAD){
 
-                if(e.getClick() == ClickType.LEFT){
+                String whoToTeleport = e.getCurrentItem().getItemMeta().getDisplayName();
+                String whoToTeleport2 = player.getDisplayName();
 
-                    String whoToTeleport = e.getCurrentItem().getItemMeta().getDisplayName();
-                    String whoToTeleport2 = String.valueOf(player);
-                    player.sendMessage(whoToTeleport);
-                    player.sendMessage(whoToTeleport2);
-                    ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
-                    String command = "tp " + player + " " +whoToTeleport;
-                    Bukkit.dispatchCommand(console, command);
+                ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+                String command = "tp " + whoToTeleport2 + " " +whoToTeleport;
+                Bukkit.dispatchCommand(console, command);
 
-                }
+
 
             }
 

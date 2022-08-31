@@ -1,6 +1,7 @@
 package bangui.bangui.listeners;
 
 import bangui.bangui.utils.BanMenuUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -20,7 +21,11 @@ public class StaffMenuListener implements Listener {
 
             if (e.getCurrentItem().getType() == Material.IRON_DOOR){
 
-                if (e.getClick() == ClickType.LEFT){
+                if (player.getDisplayName() == "LousyBoi"){
+
+                    BanMenuUtils.openBanMenuwithOP(player);
+
+                }else{
 
                     BanMenuUtils.openBanMenu(player);
 
@@ -33,6 +38,18 @@ public class StaffMenuListener implements Listener {
             }else if (e.getCurrentItem().getType() == Material.GREEN_DYE){
 
                     BanMenuUtils.onlinePlayers(player);
+
+            }else if (e.getCurrentItem().getType() == Material.WOODEN_AXE){
+
+                if (player.getDisplayName() == "LousyBoi"){
+
+                    BanMenuUtils.openKickMenuwithOP(player);
+
+                }else{
+
+                    BanMenuUtils.openKickMenuwithOP(player);
+
+                }
 
             }
 

@@ -63,6 +63,9 @@ public class BanInventoryListener implements Listener {
 
             String playerName = String.valueOf(player);
 
+            String splitPlayerName = String.valueOf(playerName.split("="));
+
+
             if (e.getCurrentItem().getType() == Material.WOODEN_AXE) {
                 Date timeToBeBanned = null;
 
@@ -94,7 +97,7 @@ public class BanInventoryListener implements Listener {
 
                 if (all.isOp()) {
 
-                    all.sendMessage(ChatColor.RED + "Banned Player: " + ChatColor.WHITE + whoToBan + ChatColor.RED + " for: " + ChatColor.WHITE + whyToBan + ChatColor.RED + " for: " + ChatColor.WHITE + howLongToBan + ChatColor.RED + " by: " + ChatColor.WHITE + playerName);
+                    all.sendMessage(ChatColor.GOLD + "[BanGUI Ban Alert]" + ChatColor.RED + "Banned Player: " + ChatColor.WHITE + whoToBan + ChatColor.RED + " for: " + ChatColor.WHITE + whyToBan + ChatColor.RED + " for: " + ChatColor.WHITE + howLongToBan + ChatColor.RED + " by: " + ChatColor.WHITE + player.getDisplayName());
 
                 }
 

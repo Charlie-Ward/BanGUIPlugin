@@ -55,7 +55,7 @@ public class BanMenuUtils {
 
         ItemStack info = new ItemStack(Material.PAPER, 1);
         ItemMeta pMeta = info.getItemMeta();
-        pMeta.setDisplayName(ChatColor.GOLD + "BanGUI Plugin Info");
+        pMeta.setDisplayName(ChatColor.GOLD + "BanGUI Menu Info");
         ArrayList<String> pLore = new ArrayList<>();
         pLore.add(ChatColor.LIGHT_PURPLE + "Left click on the player head of the person you want to");
         pLore.add(ChatColor.LIGHT_PURPLE + "ban and confirm the ban");
@@ -260,9 +260,9 @@ public class BanMenuUtils {
         ReasonToBanMenu.setItem(1, Filler);
         ReasonToBanMenu.setItem(2, Filler);
 
-        ReasonToBanMenu.setItem(3, info);
-        ReasonToBanMenu.setItem(4, Filler);
-        ReasonToBanMenu.setItem(5, back);
+        ReasonToBanMenu.setItem(3, Filler);
+        ReasonToBanMenu.setItem(4, info);
+        ReasonToBanMenu.setItem(5, Filler);
 
         ReasonToBanMenu.setItem(6, Filler);
         ReasonToBanMenu.setItem(7, Filler);
@@ -416,11 +416,11 @@ public class BanMenuUtils {
         timeToBanMenu.setItem(0, filler);
         timeToBanMenu.setItem(1, filler);
 
-        timeToBanMenu.setItem(2, info);
+        timeToBanMenu.setItem(2, filler);
         timeToBanMenu.setItem(3, filler);
-        timeToBanMenu.setItem(4, filler);
+        timeToBanMenu.setItem(4, info);
         timeToBanMenu.setItem(5, filler);
-        timeToBanMenu.setItem(6, close);
+        timeToBanMenu.setItem(6, filler);
 
         timeToBanMenu.setItem(7, filler);
         timeToBanMenu.setItem(8, filler);
@@ -472,7 +472,7 @@ public class BanMenuUtils {
 
     public static void StaffMainMenu (Player player1){
 
-        Inventory StaffMenu = Bukkit.createInventory(player1, 27, ChatColor.GOLD + "Staff Menu");
+        Inventory StaffMenu = Bukkit.createInventory(player1, 45, ChatColor.GOLD + "Staff Menu");
 
         ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
         ItemMeta fMeta = filler.getItemMeta();
@@ -510,6 +510,14 @@ public class BanMenuUtils {
         opMeta.setLore(opLore);
         onlinePlayers.setItemMeta(opMeta);
 
+        ItemStack kickMenu = new ItemStack(Material.WOODEN_AXE);
+        ItemMeta kMeta = kickMenu.getItemMeta();
+        kMeta.setDisplayName(ChatColor.GOLD + "KickGUI");
+        ArrayList<String> kLore = new ArrayList<>();
+        kLore.add(ChatColor.LIGHT_PURPLE + "Opens the kickGUI menu");
+        kMeta.setLore(kLore);
+        kickMenu.setItemMeta(kMeta);
+
         ItemStack vanish = new ItemStack(Material.WHITE_CONCRETE);
         ItemMeta vMeta = vanish.getItemMeta();
         vMeta.setDisplayName(ChatColor.GOLD + "Vanish");
@@ -529,42 +537,71 @@ public class BanMenuUtils {
         //Line 1
         StaffMenu.setItem(0, filler);
         StaffMenu.setItem(1, filler);
-        StaffMenu.setItem(2, info);
+        StaffMenu.setItem(2, filler);
 
-        StaffMenu.setItem(3, filler);
+        StaffMenu.setItem(3, info);
         StaffMenu.setItem(4, filler);
-        StaffMenu.setItem(5, filler);
+        StaffMenu.setItem(5, close);
 
-        StaffMenu.setItem(6, close);
+        StaffMenu.setItem(6, filler);
         StaffMenu.setItem(7, filler);
         StaffMenu.setItem(8, filler);
 
         //Line 2
         StaffMenu.setItem(9, filler);
-        StaffMenu.setItem(10, banGUI);
-        StaffMenu.setItem(11, filler);
+        StaffMenu.setItem(10, filler);
+        StaffMenu.setItem(11, banGUI);
+
         StaffMenu.setItem(12, filler);
-
         StaffMenu.setItem(13, filler);
-
         StaffMenu.setItem(14, filler);
-        StaffMenu.setItem(15, filler);
-        StaffMenu.setItem(16, onlinePlayers);
+
+        StaffMenu.setItem(15, onlinePlayers);
+        StaffMenu.setItem(16, filler);
         StaffMenu.setItem(17, filler);
 
         //Line 3
 
         StaffMenu.setItem(18, filler);
-        StaffMenu.setItem(19, vanish);
+        StaffMenu.setItem(19, filler);
         StaffMenu.setItem(20, filler);
-
         StaffMenu.setItem(21, filler);
-        StaffMenu.setItem(22, filler);
-        StaffMenu.setItem(23, filler);
 
+        StaffMenu.setItem(22, kickMenu);
+
+        StaffMenu.setItem(23, filler);
         StaffMenu.setItem(24, filler);
-        StaffMenu.setItem(25, opPlayers);
+        StaffMenu.setItem(25, filler);
         StaffMenu.setItem(26, filler);
+
+
+        //Line 4
+
+        StaffMenu.setItem(27, filler);
+        StaffMenu.setItem(28, filler);
+        StaffMenu.setItem(29, vanish);
+
+        StaffMenu.setItem(30, filler);
+        StaffMenu.setItem(31, filler);
+        StaffMenu.setItem(35, filler);
+
+        StaffMenu.setItem(36, opPlayers);
+        StaffMenu.setItem(37, filler);
+        StaffMenu.setItem(38, filler);
+
+        //Line 5
+
+        StaffMenu.setItem(39, filler);
+        StaffMenu.setItem(40, filler);
+        StaffMenu.setItem(41, filler);
+        StaffMenu.setItem(42, filler);
+
+        StaffMenu.setItem(43, filler);
+
+        StaffMenu.setItem(44, filler);
+        StaffMenu.setItem(45, filler);
+        StaffMenu.setItem(46, filler);
+        StaffMenu.setItem(47, filler);
 
         player1.openInventory(StaffMenu);
 
@@ -590,7 +627,7 @@ public class BanMenuUtils {
 
             if (PlayerSize >= 46){
 
-                player.sendMessage(ChatColor.RED + "Too many players online please ban through commands");
+                player.sendMessage(ChatColor.RED + "Too many players online please look at the tab list");
                 InvSize = 0;
 
             }else{
@@ -667,4 +704,384 @@ public class BanMenuUtils {
         player.openInventory(onlinePlayers);
 
     }
+
+    public static void openKickMenu(Player player){
+
+        //Get a list of players on the server
+        ArrayList<Player> list = new ArrayList<Player>(player.getServer().getOnlinePlayers());
+
+        float LAmount = list.size() / 9;
+        int LAmountR = Math.round(LAmount);
+
+        int PlayerSize = LAmountR;
+
+        int InvSize = 0;
+
+        if (PlayerSize <= 9){
+
+            InvSize = 18;
+
+        } else if (PlayerSize >= 10) {
+
+            if (PlayerSize >= 46){
+
+                player.sendMessage(ChatColor.RED + "Too many players online please kick through commands");
+                InvSize = 0;
+
+            }else{
+
+                InvSize = PlayerSize + 9;
+
+            }
+        }
+
+
+        //Make and open the ban gui
+        Inventory kickGUI = Bukkit.createInventory(player, InvSize, ChatColor.BLUE + "Player List");
+
+        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
+        ItemMeta fMeta = filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        filler.setItemMeta(fMeta);
+
+        ItemStack info = new ItemStack(Material.PAPER, 1);
+        ItemMeta pMeta = info.getItemMeta();
+        pMeta.setDisplayName(ChatColor.GOLD + "KickGUI Menu Info");
+        ArrayList<String> pLore = new ArrayList<>();
+        pLore.add(ChatColor.LIGHT_PURPLE + "Left click on the player head of the person you want to");
+        pLore.add(ChatColor.LIGHT_PURPLE + "kick and confirm the kick");
+        pMeta.setLore(pLore);
+        info.setItemMeta(pMeta);
+
+        ItemStack home = new ItemStack(Material.OAK_DOOR, 1);
+        ItemMeta hMeta = home.getItemMeta();
+        hMeta.setDisplayName(ChatColor.GOLD + "Staff Home");
+        ArrayList<String> hLore = new ArrayList<>();
+        hLore.add(ChatColor.LIGHT_PURPLE + "Go back to the staff home");
+        hMeta.setLore(hLore);
+        home.setItemMeta(hMeta);
+
+        ItemStack close = new ItemStack(Material.BARRIER, 1);
+        ItemMeta cMeta = info.getItemMeta();
+        cMeta.setDisplayName(ChatColor.RED + "Close");
+        ArrayList<String> cLore = new ArrayList<>();
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
+        cMeta.setLore(cLore);
+        close.setItemMeta(cMeta);
+
+        kickGUI.setItem(0, filler);
+        kickGUI.setItem(1, filler);
+        kickGUI.setItem(2, filler);
+
+        kickGUI.setItem(3, info);
+
+        kickGUI.setItem(4, home);
+
+        kickGUI.setItem(5, close);
+
+        kickGUI.setItem(6, filler);
+        kickGUI.setItem(7, filler);
+        kickGUI.setItem(8, filler);
+
+        //For every player, add their name to gui
+        for (int i = 0; i < list.size(); i++){
+            ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD, 1);
+            ItemMeta meta = playerHead.getItemMeta();
+            //Set player info on the item
+            meta.setDisplayName(list.get(i).getDisplayName());
+            ArrayList<String> lore = new ArrayList<>();
+            lore.add(ChatColor.GOLD + "Player Health: " + ChatColor.RED + list.get(i).getHealth());
+            lore.add(ChatColor.GOLD + "EXP: " + ChatColor.AQUA + list.get(i).getExp());
+
+            int coordsX = list.get(i).getLocation().getBlockX();
+            int coordsY = list.get(i).getLocation().getBlockY();
+            int coordsZ = list.get(i).getLocation().getBlockZ();
+
+            lore.add(ChatColor.GOLD + "Player Location: " + ChatColor.WHITE + coordsX + "," + coordsY + "," + coordsZ);
+            lore.add(ChatColor.GOLD + "Player IP: " + ChatColor.WHITE + list.get(i).getAddress());
+            lore.add(ChatColor.GOLD + "Is Player Op: " + ChatColor.WHITE + list.get(i).isOp());
+
+            meta.setLore(lore);
+            playerHead.setItemMeta(meta);
+            //Add player head to gui
+
+            kickGUI.addItem(playerHead);
+
+        }
+        player.openInventory(kickGUI);
+
+    }
+
+    public static void openPlayerMenuKick(Player player1, String whoToBan){
+
+        //Player to be banned
+        String banMe = whoToBan;
+
+        //Open up ban menu
+        Inventory kickPlayerMenu = Bukkit.createInventory(player1, 9, ChatColor.RED + "Confirm Kick");
+
+        //Create Filler thing
+
+        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
+        ItemMeta fMeta = filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        filler.setItemMeta(fMeta);
+
+        //Ban Option
+        ItemStack ban = new ItemStack(Material.WOODEN_AXE, 1);
+        ItemMeta ban_meta = ban.getItemMeta();
+        ban_meta.setDisplayName(ChatColor.DARK_GREEN + "Kick");
+        ban.setItemMeta(ban_meta);
+        kickPlayerMenu.setItem(0, ban);
+
+        //Add fillers
+
+        kickPlayerMenu.setItem(1, filler);
+        kickPlayerMenu.setItem(2, filler);
+        kickPlayerMenu.setItem(3, filler);
+
+        //Add player
+        ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD, 1);
+        ItemMeta player_meta = playerHead.getItemMeta();
+        player_meta.setDisplayName(banMe);
+        ArrayList<String> PHlore = new ArrayList<>();
+        PHlore.add(banMe);
+        player_meta.setLore(PHlore);
+        playerHead.setItemMeta(player_meta);
+        kickPlayerMenu.setItem(4, playerHead);
+
+        //Add fillers
+
+        kickPlayerMenu.setItem(5, filler);
+        kickPlayerMenu.setItem(6, filler);
+        kickPlayerMenu.setItem(7, filler);
+
+        //Cancel option
+        ItemStack cancel = new ItemStack(Material.BARRIER, 1);
+        ItemMeta cancel_meta = cancel.getItemMeta();
+        cancel_meta.setDisplayName(ChatColor.RED + "Close");
+        cancel.setItemMeta(cancel_meta);
+        ArrayList<String> cLore = new ArrayList<>();
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
+        cancel_meta.setLore(cLore);
+        kickPlayerMenu.setItem(8, cancel);
+
+        player1.openInventory(kickPlayerMenu);
+    }
+
+    public static void openBanMenuwithOP(Player player){
+
+        //Get a list of players on the server
+        ArrayList<Player> list = new ArrayList<Player>(player.getServer().getOnlinePlayers());
+
+        float LAmount = list.size() / 9;
+        int LAmountR = Math.round(LAmount);
+
+        int PlayerSize = LAmountR;
+
+        int InvSize = 0;
+
+        if (PlayerSize <= 9){
+
+            InvSize = 18;
+
+        } else if (PlayerSize >= 10) {
+
+            if (PlayerSize >= 46){
+
+                player.sendMessage(ChatColor.RED + "Too many players online please ban through commands");
+                InvSize = 0;
+
+            }else{
+
+                InvSize = PlayerSize + 9;
+
+            }
+        }
+
+
+        //Make and open the ban gui
+        Inventory banguiwithOP = Bukkit.createInventory(player, InvSize, ChatColor.RED + "Player List");
+
+        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
+        ItemMeta fMeta = filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        filler.setItemMeta(fMeta);
+
+        ItemStack info = new ItemStack(Material.PAPER, 1);
+        ItemMeta pMeta = info.getItemMeta();
+        pMeta.setDisplayName(ChatColor.GOLD + "BanGUI Menu Info");
+        ArrayList<String> pLore = new ArrayList<>();
+        pLore.add(ChatColor.LIGHT_PURPLE + "Left click on the player head of the person you want to");
+        pLore.add(ChatColor.LIGHT_PURPLE + "ban and confirm the ban");
+        pMeta.setLore(pLore);
+        info.setItemMeta(pMeta);
+
+        ItemStack home = new ItemStack(Material.OAK_DOOR, 1);
+        ItemMeta hMeta = home.getItemMeta();
+        hMeta.setDisplayName(ChatColor.GOLD + "Staff Home");
+        ArrayList<String> hLore = new ArrayList<>();
+        hLore.add(ChatColor.LIGHT_PURPLE + "Go back to the staff home");
+        hMeta.setLore(hLore);
+        home.setItemMeta(hMeta);
+
+        ItemStack close = new ItemStack(Material.BARRIER, 1);
+        ItemMeta cMeta = info.getItemMeta();
+        cMeta.setDisplayName(ChatColor.RED + "Close");
+        ArrayList<String> cLore = new ArrayList<>();
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
+        cMeta.setLore(cLore);
+        close.setItemMeta(cMeta);
+
+        banguiwithOP.setItem(0, filler);
+        banguiwithOP.setItem(1, filler);
+        banguiwithOP.setItem(2, filler);
+
+        banguiwithOP.setItem(3, info);
+
+        banguiwithOP.setItem(4, home);
+
+        banguiwithOP.setItem(5, close);
+
+        banguiwithOP.setItem(6, filler);
+        banguiwithOP.setItem(7, filler);
+        banguiwithOP.setItem(8, filler);
+
+        //For every player, add their name to gui
+        for (int i = 0; i < list.size(); i++){
+            ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD, 1);
+            ItemMeta meta = playerHead.getItemMeta();
+            //Set player info on the item
+            meta.setDisplayName(list.get(i).getDisplayName());
+            ArrayList<String> lore = new ArrayList<>();
+            lore.add(ChatColor.GOLD + "Player Health: " + ChatColor.RED + list.get(i).getHealth());
+            lore.add(ChatColor.GOLD + "EXP: " + ChatColor.AQUA + list.get(i).getExp());
+
+            int coordsX = list.get(i).getLocation().getBlockX();
+            int coordsY = list.get(i).getLocation().getBlockY();
+            int coordsZ = list.get(i).getLocation().getBlockZ();
+
+            lore.add(ChatColor.GOLD + "Player Location: " + ChatColor.WHITE + coordsX + "," + coordsY + "," + coordsZ);
+            lore.add(ChatColor.GOLD + "Player IP: " + ChatColor.WHITE + list.get(i).getAddress());
+            lore.add(ChatColor.GOLD + "Is Player Op: " + ChatColor.WHITE + list.get(i).isOp());
+
+            meta.setLore(lore);
+            playerHead.setItemMeta(meta);
+            //Add player head to gui
+
+            banguiwithOP.addItem(playerHead);
+
+        }
+        player.openInventory(banguiwithOP);
+
+    }
+
+    public static void openKickMenuwithOP(Player player){
+
+        //Get a list of players on the server
+        ArrayList<Player> list = new ArrayList<Player>(player.getServer().getOnlinePlayers());
+
+        float LAmount = list.size() / 9;
+        int LAmountR = Math.round(LAmount);
+
+        int PlayerSize = LAmountR;
+
+        int InvSize = 0;
+
+        if (PlayerSize <= 9){
+
+            InvSize = 18;
+
+        } else if (PlayerSize >= 10) {
+
+            if (PlayerSize >= 46){
+
+                player.sendMessage(ChatColor.RED + "Too many players online please kick through commands");
+                InvSize = 0;
+
+            }else{
+
+                InvSize = PlayerSize + 9;
+
+            }
+        }
+
+
+        //Make and open the ban gui
+        Inventory kickGUIwithOp = Bukkit.createInventory(player, InvSize, ChatColor.BLUE + "Player List");
+
+        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
+        ItemMeta fMeta = filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        filler.setItemMeta(fMeta);
+
+        ItemStack info = new ItemStack(Material.PAPER, 1);
+        ItemMeta pMeta = info.getItemMeta();
+        pMeta.setDisplayName(ChatColor.GOLD + "KickGUI Menu Info");
+        ArrayList<String> pLore = new ArrayList<>();
+        pLore.add(ChatColor.LIGHT_PURPLE + "Left click on the player head of the person you want to");
+        pLore.add(ChatColor.LIGHT_PURPLE + "kick and confirm the kick");
+        pMeta.setLore(pLore);
+        info.setItemMeta(pMeta);
+
+        ItemStack home = new ItemStack(Material.OAK_DOOR, 1);
+        ItemMeta hMeta = home.getItemMeta();
+        hMeta.setDisplayName(ChatColor.GOLD + "Staff Home");
+        ArrayList<String> hLore = new ArrayList<>();
+        hLore.add(ChatColor.LIGHT_PURPLE + "Go back to the staff home");
+        hMeta.setLore(hLore);
+        home.setItemMeta(hMeta);
+
+        ItemStack close = new ItemStack(Material.BARRIER, 1);
+        ItemMeta cMeta = info.getItemMeta();
+        cMeta.setDisplayName(ChatColor.RED + "Close");
+        ArrayList<String> cLore = new ArrayList<>();
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
+        cMeta.setLore(cLore);
+        close.setItemMeta(cMeta);
+
+        kickGUIwithOp.setItem(0, filler);
+        kickGUIwithOp.setItem(1, filler);
+        kickGUIwithOp.setItem(2, filler);
+
+        kickGUIwithOp.setItem(3, info);
+
+        kickGUIwithOp.setItem(4, home);
+
+        kickGUIwithOp.setItem(5, close);
+
+        kickGUIwithOp.setItem(6, filler);
+        kickGUIwithOp.setItem(7, filler);
+        kickGUIwithOp.setItem(8, filler);
+
+        //For every player, add their name to gui
+        for (int i = 0; i < list.size(); i++){
+            ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD, 1);
+            ItemMeta meta = playerHead.getItemMeta();
+            //Set player info on the item
+            meta.setDisplayName(list.get(i).getDisplayName());
+            ArrayList<String> lore = new ArrayList<>();
+            lore.add(ChatColor.GOLD + "Player Health: " + ChatColor.RED + list.get(i).getHealth());
+            lore.add(ChatColor.GOLD + "EXP: " + ChatColor.AQUA + list.get(i).getExp());
+
+            int coordsX = list.get(i).getLocation().getBlockX();
+            int coordsY = list.get(i).getLocation().getBlockY();
+            int coordsZ = list.get(i).getLocation().getBlockZ();
+
+            lore.add(ChatColor.GOLD + "Player Location: " + ChatColor.WHITE + coordsX + "," + coordsY + "," + coordsZ);
+            lore.add(ChatColor.GOLD + "Player IP: " + ChatColor.WHITE + list.get(i).getAddress());
+            lore.add(ChatColor.GOLD + "Is Player Op: " + ChatColor.WHITE + list.get(i).isOp());
+
+            meta.setLore(lore);
+            playerHead.setItemMeta(meta);
+            //Add player head to gui
+
+            kickGUIwithOp.addItem(playerHead);
+
+        }
+        player.openInventory(kickGUIwithOp);
+
+    }
+
+
 }

