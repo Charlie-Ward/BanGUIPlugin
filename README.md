@@ -1,7 +1,7 @@
 # BanGUIPlugin
 ## What does it do?
 
-###### BanGUI allows an easy way to staff a server. It currently features a player list, online staff list, a report menu, a kick menu and a ban menu.
+###### BanGUI allows an easy way to staff a server. It currently features a player list, online staff list, a report menu, a kick menu, and a ban menu.
 
 ## What will it do?
 
@@ -15,7 +15,7 @@
 ###### Permissions for other plugins such as LuckPerms
 ###### Server Lockdown Command that can only be done by the owner
 
-###### Maybe a owner password system to avoid owner being hacked
+###### Maybe an owner password system to avoid owner being hacked
 
 ## Commands
 
