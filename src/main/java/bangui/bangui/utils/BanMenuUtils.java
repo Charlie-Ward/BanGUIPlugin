@@ -1099,5 +1099,107 @@ public class BanMenuUtils {
 
     }
 
+    public static void onlineStaff(Player player){
+
+        //Get a list of players on the server
+        ArrayList<Player> list = new ArrayList<Player>(player.getServer().getOnlinePlayers());
+
+        float LAmount = list.size() / 9;
+        int LAmountR = Math.round(LAmount);
+
+        int PlayerSize = LAmountR;
+
+        int InvSize = 0;
+
+        if (PlayerSize <= 9){
+
+            InvSize = 18;
+
+        } else if (PlayerSize >= 10) {
+
+            if (PlayerSize >= 46){
+
+                player.sendMessage(ChatColor.RED + "Too many staff online to open this menu");
+                InvSize = 0;
+
+            }else{
+
+                InvSize = PlayerSize + 9;
+
+            }
+        }
+
+
+        //Make and open the ban gui
+        Inventory onlinePlayers = Bukkit.createInventory(player, InvSize, ChatColor.GOLD + "Staff List");
+
+        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
+        ItemMeta fMeta = filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        filler.setItemMeta(fMeta);
+
+        ItemStack info = new ItemStack(Material.PAPER, 1);
+        ItemMeta pMeta = info.getItemMeta();
+        pMeta.setDisplayName(ChatColor.GOLD + "Online Staff Info");
+        ArrayList<String> pLore = new ArrayList<>();
+        pLore.add(ChatColor.LIGHT_PURPLE + "Shows all online staff");
+        pMeta.setLore(pLore);
+        info.setItemMeta(pMeta);
+
+        ItemStack home = new ItemStack(Material.OAK_DOOR, 1);
+        ItemMeta hMeta = home.getItemMeta();
+        hMeta.setDisplayName(ChatColor.GOLD + "Staff Home");
+        ArrayList<String> hLore = new ArrayList<>();
+        hLore.add(ChatColor.LIGHT_PURPLE + "Go back to the staff home");
+        hMeta.setLore(hLore);
+        home.setItemMeta(hMeta);
+
+
+        ItemStack close = new ItemStack(Material.BARRIER, 1);
+        ItemMeta cMeta = info.getItemMeta();
+        cMeta.setDisplayName(ChatColor.RED + "Close");
+        ArrayList<String> cLore = new ArrayList<>();
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
+        cMeta.setLore(cLore);
+        close.setItemMeta(cMeta);
+
+        onlinePlayers.setItem(0, filler);
+        onlinePlayers.setItem(1, filler);
+        onlinePlayers.setItem(2, filler);
+
+        onlinePlayers.setItem(3, info);
+
+        onlinePlayers.setItem(4, home);
+
+        onlinePlayers.setItem(5, close);
+
+        onlinePlayers.setItem(6, filler);
+        onlinePlayers.setItem(7, filler);
+        onlinePlayers.setItem(8, filler);
+
+        //For every player, add their name to gui
+        for (int i = 0; i < list.size(); i++){
+            ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD, 1);
+            ItemMeta meta = playerHead.getItemMeta();
+            //Set player info on the item
+            meta.setDisplayName(list.get(i).getDisplayName());
+            playerHead.setItemMeta(meta);
+            //Add player head to gui
+
+            if(list.get(i).isOp() == true){
+
+                onlinePlayers.addItem(playerHead);
+
+            }else{
+
+                break;
+
+            }
+
+        }
+        player.openInventory(onlinePlayers);
+
+    }
+
 
 }

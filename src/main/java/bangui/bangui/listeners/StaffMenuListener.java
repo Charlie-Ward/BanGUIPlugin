@@ -31,15 +31,15 @@ public class StaffMenuListener implements Listener {
 
             }else if (e.getCurrentItem().getType() == Material.WOODEN_AXE){
 
-                if (player.getDisplayName() == "LousyBoi"){
+                BanMenuUtils.openKickMenu(player);
 
-                    BanMenuUtils.openKickMenuwithOP(player);
+            }else if(e.getCurrentItem().getType() == Material.COMMAND_BLOCK){
 
-                }else{
+                BanMenuUtils.onlineStaff(player);
 
-                    BanMenuUtils.openKickMenu(player);
+            }else if (e.getCurrentItem().getType() == Material.WHITE_CONCRETE){
 
-                }
+                player.sendMessage(ChatColor.GOLD + "This feature is coming to the BanGUI plugin soon");
 
             }
 

