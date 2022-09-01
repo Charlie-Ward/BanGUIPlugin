@@ -28,6 +28,10 @@ public class KickInventoryListener implements Listener{
 
                 player.closeInventory();
 
+            }else if (e.getCurrentItem().getType() == Material.OAK_DOOR){
+
+                BanMenuUtils.StaffMainMenu(player);
+
             }
             e.setCancelled(true);
         }else if (e.getView().getTitle().equalsIgnoreCase(ChatColor.RED + "Confirm Kick")){

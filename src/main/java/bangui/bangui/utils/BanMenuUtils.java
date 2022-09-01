@@ -1216,7 +1216,7 @@ public class BanMenuUtils {
 
 
         //Make and open the ban gui
-        Inventory onlinePlayers = Bukkit.createInventory(player, InvSize, ChatColor.BLUE + "Player List");
+        Inventory onlinePlayers = Bukkit.createInventory(player, InvSize, ChatColor.AQUA + "Player List");
 
         ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
         ItemMeta fMeta = filler.getItemMeta();
@@ -1260,7 +1260,6 @@ public class BanMenuUtils {
             //Set player info on the item
             meta.setDisplayName(list.get(i).getDisplayName());
             ArrayList<String> phLore = new ArrayList<>();
-            phLore.add(ChatColor.GOLD + "Is player op: " + ChatColor.LIGHT_PURPLE + list.get(i).isOp());
             meta.setLore(phLore);
             playerHead.setItemMeta(meta);
             //Add player head to gui
