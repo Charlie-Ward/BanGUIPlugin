@@ -1,12 +1,12 @@
 # BanGUIPlugin
 ## What does it do?
 
-###### Currently, BanGUI plugin only adds a GUI to help you ban players however in the future it will become a fully capable staff plugin to help you run your spigot 1.17.1 server
+###### BanGUI allows an easy way to staff a server. It currently features a player list, online staff list, a kick menu and a ban menu.
 
 ## Commands
 
+###### /staff - opens the staff menu
 ###### /help - shows available commands
-###### /bangui - shows the banGUI
 
 ## Other Links
 
@@ -15,3 +15,4 @@
 ## Authors
 
 ###### This plugin was created by me if there are any bugs please let me know
+
