@@ -20,7 +20,9 @@ public class BanGUICommand implements CommandExecutor, Listener {
             Player p = (Player) sender;
 
             if (p.isOp()){
-                BanMenuUtils.openBanMenu(p);
+
+                p.sendMessage(ChatColor.GRAY + "Please use the staff menu to access this now" + ChatColor.RED + "/staff");
+
 
             }else{
 

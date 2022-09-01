@@ -114,15 +114,7 @@ public class BanMenuUtils {
             playerHead.setItemMeta(meta);
             //Add player head to gui
 
-            if (list.get(i).isOp()){
-
-                break;
-
-            }else{
-
-                bangui.addItem(playerHead);
-
-            }
+            bangui.addItem(playerHead);
 
         }
         player.openInventory(bangui);
@@ -813,15 +805,7 @@ public class BanMenuUtils {
             playerHead.setItemMeta(meta);
             //Add player head to gui
 
-            if (list.get(i).isOp()){
-
-                break;
-
-            }else{
-
-                kickGUI.addItem(playerHead);
-
-            }
+            kickGUI.addItem(playerHead);
 
         }
         player.openInventory(kickGUI);

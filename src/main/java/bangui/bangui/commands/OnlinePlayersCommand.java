@@ -18,7 +18,7 @@ public class OnlinePlayersCommand implements CommandExecutor, Listener{
             Player p = (Player) sender;
             if (p.isOp()){
 
-                BanMenuUtils.onlinePlayers(p);
+                p.sendMessage(ChatColor.GRAY + "Please use the staff menu to access this now" + ChatColor.RED + "/staff");
 
             }else{
 
