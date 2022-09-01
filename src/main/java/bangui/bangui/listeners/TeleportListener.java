@@ -1,7 +1,5 @@
 package bangui.bangui.listeners;
 
-import bangui.bangui.BanGUI;
-import bangui.bangui.utils.BanMenuUtils;
 import org.bukkit.*;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
@@ -21,14 +19,42 @@ public class TeleportListener implements Listener {
 
             if (e.getCurrentItem().getType() == Material.PLAYER_HEAD){
 
-                String whoToTeleport = e.getCurrentItem().getItemMeta().getDisplayName();
-                String whoToTeleport2 = player.getDisplayName();
 
-                player.setGameMode(GameMode.SPECTATOR);
 
-                ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
-                String command = "tp " + whoToTeleport2 + " " +whoToTeleport;
-                Bukkit.dispatchCommand(console, command);
+                if (e.getClick() == ClickType.LEFT) {
+                    String whoToTeleport = e.getCurrentItem().getItemMeta().getDisplayName();
+                    String whoToTeleport2 = player.getDisplayName();
+
+
+                    ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+                    String command = "tp " + whoToTeleport2 + " " + whoToTeleport;
+                    Bukkit.dispatchCommand(console, command);
+                } else if (e.getClick() == ClickType.RIGHT) {
+
+                    String whoToTeleport = e.getCurrentItem().getItemMeta().getDisplayName();
+                    String whoToTeleport2 = player.getDisplayName();
+
+                    player.setGameMode(GameMode.SPECTATOR);
+
+                    ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+                    String command = "tp " + whoToTeleport2 + " " + whoToTeleport;
+                    Bukkit.dispatchCommand(console, command);
+
+
+                }
+
+                for (Player all : Bukkit.getServer().getOnlinePlayers()){
+
+                    if (all.isOp()) {
+
+                        String whoToTeleport = e.getCurrentItem().getItemMeta().getDisplayName();
+                        String whoToTeleport2 = player.getDisplayName();
+
+                        all.sendMessage(ChatColor.GOLD + "[BanGUI Teleport Alert]" + ChatColor.RED + "Player: " + ChatColor.WHITE + whoToTeleport2 + ChatColor.RED + " teleported to: " + ChatColor.WHITE + whoToTeleport );
+
+                    }
+
+                }
 
             }
 
