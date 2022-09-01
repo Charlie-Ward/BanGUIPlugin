@@ -2,10 +2,7 @@ package bangui.bangui.listeners;
 
 import bangui.bangui.BanGUI;
 import bangui.bangui.utils.BanMenuUtils;
-import org.bukkit.BanList;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -27,11 +24,11 @@ public class TeleportListener implements Listener {
                 String whoToTeleport = e.getCurrentItem().getItemMeta().getDisplayName();
                 String whoToTeleport2 = player.getDisplayName();
 
+                player.setGameMode(GameMode.SPECTATOR);
+
                 ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
                 String command = "tp " + whoToTeleport2 + " " +whoToTeleport;
                 Bukkit.dispatchCommand(console, command);
-
-
 
             }
 

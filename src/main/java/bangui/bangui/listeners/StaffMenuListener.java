@@ -47,7 +47,7 @@ public class StaffMenuListener implements Listener {
 
                 }else{
 
-                    BanMenuUtils.openKickMenuwithOP(player);
+                    BanMenuUtils.openKickMenu(player);
 
                 }
 

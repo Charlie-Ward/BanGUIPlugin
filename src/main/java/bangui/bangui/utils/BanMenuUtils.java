@@ -114,7 +114,15 @@ public class BanMenuUtils {
             playerHead.setItemMeta(meta);
             //Add player head to gui
 
-            bangui.addItem(playerHead);
+            if (list.get(i).isOp()){
+
+                break;
+
+            }else{
+
+                bangui.addItem(playerHead);
+
+            }
 
         }
         player.openInventory(bangui);
@@ -583,25 +591,25 @@ public class BanMenuUtils {
 
         StaffMenu.setItem(30, filler);
         StaffMenu.setItem(31, filler);
-        StaffMenu.setItem(35, filler);
+        StaffMenu.setItem(32, filler);
 
-        StaffMenu.setItem(36, opPlayers);
-        StaffMenu.setItem(37, filler);
-        StaffMenu.setItem(38, filler);
+        StaffMenu.setItem(33, opPlayers);
+        StaffMenu.setItem(34, filler);
+        StaffMenu.setItem(35, filler);
 
         //Line 5
 
+        StaffMenu.setItem(36, filler);
+        StaffMenu.setItem(37, filler);
+        StaffMenu.setItem(38, filler);
         StaffMenu.setItem(39, filler);
+
         StaffMenu.setItem(40, filler);
+
         StaffMenu.setItem(41, filler);
         StaffMenu.setItem(42, filler);
-
         StaffMenu.setItem(43, filler);
-
         StaffMenu.setItem(44, filler);
-        StaffMenu.setItem(45, filler);
-        StaffMenu.setItem(46, filler);
-        StaffMenu.setItem(47, filler);
 
         player1.openInventory(StaffMenu);
 
@@ -805,7 +813,15 @@ public class BanMenuUtils {
             playerHead.setItemMeta(meta);
             //Add player head to gui
 
-            kickGUI.addItem(playerHead);
+            if (list.get(i).isOp()){
+
+                break;
+
+            }else{
+
+                kickGUI.addItem(playerHead);
+
+            }
 
         }
         player.openInventory(kickGUI);
