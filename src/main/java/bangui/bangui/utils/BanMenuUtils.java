@@ -247,10 +247,10 @@ public class BanMenuUtils {
 
         ItemStack oItem = new ItemStack(Material.OAK_SIGN);
         ItemMeta oMeta = oItem.getItemMeta();
-        oMeta.setDisplayName(banMe + ",Other please ask staff for further details");
+        oMeta.setDisplayName(banMe + ",Other please contact staff with further details");
         ArrayList<String> oLore = new ArrayList<>();
         oLore.add(String.valueOf(banMe));
-        oLore.add(ChatColor.LIGHT_PURPLE + "Other please ask staff for further details");
+        oLore.add(ChatColor.LIGHT_PURPLE + "Other please contact staff with further details");
         oMeta.setLore(oLore);
         oItem.setItemMeta(oMeta);
 
@@ -1182,6 +1182,393 @@ public class BanMenuUtils {
         }
         player.openInventory(onlinePlayers);
 
+    }
+
+    public static void onlinePlayersNonStaff(Player player){
+
+        //Get a list of players on the server
+        ArrayList<Player> list = new ArrayList<Player>(player.getServer().getOnlinePlayers());
+
+        float LAmount = list.size() / 9;
+        int LAmountR = Math.round(LAmount);
+
+        int PlayerSize = LAmountR;
+
+        int InvSize = 0;
+
+        if (PlayerSize <= 9){
+
+            InvSize = 18;
+
+        } else if (PlayerSize >= 10) {
+
+            if (PlayerSize >= 46){
+
+                player.sendMessage(ChatColor.RED + "Too many players online please look at the tab list");
+                InvSize = 0;
+
+            }else{
+
+                InvSize = PlayerSize + 9;
+
+            }
+        }
+
+
+        //Make and open the ban gui
+        Inventory onlinePlayers = Bukkit.createInventory(player, InvSize, ChatColor.BLUE + "Player List");
+
+        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
+        ItemMeta fMeta = filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        filler.setItemMeta(fMeta);
+
+        ItemStack info = new ItemStack(Material.PAPER, 1);
+        ItemMeta pMeta = info.getItemMeta();
+        pMeta.setDisplayName(ChatColor.GOLD + "Online Players Info");
+        ArrayList<String> pLore = new ArrayList<>();
+        pLore.add(ChatColor.LIGHT_PURPLE + "Shows all online players");
+        pMeta.setLore(pLore);
+        info.setItemMeta(pMeta);
+
+        ItemStack close = new ItemStack(Material.BARRIER, 1);
+        ItemMeta cMeta = info.getItemMeta();
+        cMeta.setDisplayName(ChatColor.RED + "Close");
+        ArrayList<String> cLore = new ArrayList<>();
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
+        cMeta.setLore(cLore);
+        close.setItemMeta(cMeta);
+
+        onlinePlayers.setItem(0, filler);
+        onlinePlayers.setItem(1, filler);
+        onlinePlayers.setItem(2, filler);
+
+        onlinePlayers.setItem(3, info);
+
+        onlinePlayers.setItem(4, filler);
+
+        onlinePlayers.setItem(5, close);
+
+        onlinePlayers.setItem(6, filler);
+        onlinePlayers.setItem(7, filler);
+        onlinePlayers.setItem(8, filler);
+
+        //For every player, add their name to gui
+        for (int i = 0; i < list.size(); i++){
+            ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD, 1);
+            ItemMeta meta = playerHead.getItemMeta();
+            //Set player info on the item
+            meta.setDisplayName(list.get(i).getDisplayName());
+            ArrayList<String> phLore = new ArrayList<>();
+            phLore.add(ChatColor.GOLD + "Is player op: " + ChatColor.LIGHT_PURPLE + list.get(i).isOp());
+            meta.setLore(phLore);
+            playerHead.setItemMeta(meta);
+            //Add player head to gui
+
+            onlinePlayers.addItem(playerHead);
+
+        }
+        player.openInventory(onlinePlayers);
+
+    }
+
+    public static void openReportList(Player player){
+
+        //Get a list of players on the server
+        ArrayList<Player> list = new ArrayList<Player>(player.getServer().getOnlinePlayers());
+
+        float LAmount = list.size() / 9;
+        int LAmountR = Math.round(LAmount);
+
+        int PlayerSize = LAmountR;
+
+        int InvSize = 0;
+
+        if (PlayerSize <= 9){
+
+            InvSize = 18;
+
+        } else if (PlayerSize >= 10) {
+
+            if (PlayerSize >= 46){
+
+                player.sendMessage(ChatColor.RED + "Too many players online please report directly to staff");
+                InvSize = 0;
+
+            }else{
+
+                InvSize = PlayerSize + 9;
+
+            }
+        }
+
+
+        //Make and open the ban gui
+        Inventory reportGUI = Bukkit.createInventory(player, InvSize, ChatColor.GREEN + "Player List");
+
+        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
+        ItemMeta fMeta = filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        filler.setItemMeta(fMeta);
+
+        ItemStack info = new ItemStack(Material.PAPER, 1);
+        ItemMeta pMeta = info.getItemMeta();
+        pMeta.setDisplayName(ChatColor.GOLD + "ReportGUI Menu Info");
+        ArrayList<String> pLore = new ArrayList<>();
+        pLore.add(ChatColor.LIGHT_PURPLE + "Left click on the player head of the person you want to");
+        pLore.add(ChatColor.LIGHT_PURPLE + "report, input the reason and confirm it");
+        pMeta.setLore(pLore);
+        info.setItemMeta(pMeta);
+
+        ItemStack close = new ItemStack(Material.BARRIER, 1);
+        ItemMeta cMeta = info.getItemMeta();
+        cMeta.setDisplayName(ChatColor.RED + "Close");
+        ArrayList<String> cLore = new ArrayList<>();
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
+        cMeta.setLore(cLore);
+        close.setItemMeta(cMeta);
+
+        reportGUI.setItem(0, filler);
+        reportGUI.setItem(1, filler);
+        reportGUI.setItem(2, filler);
+
+        reportGUI.setItem(3, info);
+
+        reportGUI.setItem(4, filler);
+
+        reportGUI.setItem(5, close);
+
+        reportGUI.setItem(6, filler);
+        reportGUI.setItem(7, filler);
+        reportGUI.setItem(8, filler);
+
+        //For every player, add their name to gui
+        for (int i = 0; i < list.size(); i++){
+            ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD, 1);
+            ItemMeta meta = playerHead.getItemMeta();
+            //Set player info on the item
+            meta.setDisplayName(list.get(i).getDisplayName());
+            ArrayList<String> lore = new ArrayList<>();
+            lore.add(ChatColor.GOLD + "Player Health: " + ChatColor.RED + list.get(i).getHealth());
+            lore.add(ChatColor.GOLD + "EXP: " + ChatColor.AQUA + list.get(i).getExp());
+
+            int coordsX = list.get(i).getLocation().getBlockX();
+            int coordsY = list.get(i).getLocation().getBlockY();
+            int coordsZ = list.get(i).getLocation().getBlockZ();
+
+            lore.add(ChatColor.GOLD + "Player Location: " + ChatColor.WHITE + coordsX + "," + coordsY + "," + coordsZ);
+            lore.add(ChatColor.GOLD + "Player IP: " + ChatColor.WHITE + list.get(i).getAddress());
+            lore.add(ChatColor.GOLD + "Is Player Op: " + ChatColor.WHITE + list.get(i).isOp());
+
+            meta.setLore(lore);
+            playerHead.setItemMeta(meta);
+            //Add player head to gui
+
+            reportGUI.addItem(playerHead);
+
+        }
+        player.openInventory(reportGUI);
+
+    }
+
+    public static void ReportReasonMenu (Player player1, String whoToBan){
+
+        String banMe = whoToBan;
+
+        Inventory ReasonToReportMenu = Bukkit.createInventory(player1, 45, ChatColor.RED + "Reason For Report");
+
+        ItemStack Filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+        ItemMeta fMeta = Filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        Filler.setItemMeta(fMeta);
+
+        ItemStack info = new ItemStack(Material.PAPER);
+        ItemMeta pMeta = info.getItemMeta();
+        pMeta.setDisplayName(ChatColor.GOLD + "Report Reason Info");
+        ArrayList<String> pLore = new ArrayList<>();
+        pLore.add(ChatColor.LIGHT_PURPLE + "Left click on the reason you want the player to be");
+        pLore.add(ChatColor.LIGHT_PURPLE + "banned for");
+        pMeta.setLore(pLore);
+        info.setItemMeta(pMeta);
+
+        ItemStack back = new ItemStack(Material.BARRIER);
+        ItemMeta bMeta = back.getItemMeta();
+        bMeta.setDisplayName(ChatColor.RED + "Close");
+        ArrayList<String> cLore = new ArrayList<>();
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
+        bMeta.setLore(cLore);
+        back.setItemMeta(bMeta);
+
+        ItemStack HarassmentItem = new ItemStack(Material.BEDROCK);
+        ItemMeta hMeta = HarassmentItem.getItemMeta();
+        hMeta.setDisplayName(banMe + ",Harassing a player or Staff Member");
+        ArrayList<String> hLore = new ArrayList<>();
+        hLore.add(String.valueOf(banMe));
+        hLore.add(ChatColor.LIGHT_PURPLE + "Harassing a player or staff member");
+        hMeta.setLore(hLore);
+        HarassmentItem.setItemMeta(hMeta);
+
+        ItemStack XrayItem = new ItemStack(Material.WOODEN_PICKAXE);
+        ItemMeta xMeta = XrayItem.getItemMeta();
+        xMeta.setDisplayName(banMe + ",Using X-Ray Hacks");
+        ArrayList<String> xLore = new ArrayList<>();
+        xLore.add(String.valueOf(banMe));
+        xLore.add(ChatColor.LIGHT_PURPLE + "Using X-Ray Hacks");
+        xMeta.setLore(xLore);
+        XrayItem.setItemMeta(xMeta);
+
+        ItemStack CombatItem = new ItemStack(Material.WOODEN_SWORD);
+        ItemMeta cMeta = CombatItem.getItemMeta();
+        cMeta.setDisplayName(banMe + ",Using Combat Hacks");
+        ArrayList<String> coLore = new ArrayList<>();
+        coLore.add(String.valueOf(banMe));
+        coLore.add(ChatColor.LIGHT_PURPLE + "Using Combat Hacks");
+        cMeta.setLore(coLore);
+        CombatItem.setItemMeta(cMeta);
+
+        ItemStack beItem = new ItemStack(Material.DARK_OAK_DOOR);
+        ItemMeta beMeta = beItem.getItemMeta();
+        beMeta.setDisplayName(banMe + ",Ban Evasion");
+        ArrayList<String> beLore = new ArrayList<>();
+        beLore.add(String.valueOf(banMe));
+        beLore.add(ChatColor.LIGHT_PURPLE + "Ban Evasion");
+        beMeta.setLore(beLore);
+        beItem.setItemMeta(beMeta);
+
+        ItemStack oItem = new ItemStack(Material.OAK_SIGN);
+        ItemMeta oMeta = oItem.getItemMeta();
+        oMeta.setDisplayName(banMe + ",Other please contact staff with further details");
+        ArrayList<String> oLore = new ArrayList<>();
+        oLore.add(String.valueOf(banMe));
+        oLore.add(ChatColor.LIGHT_PURPLE + "Other please contact staff with further details");
+        oMeta.setLore(oLore);
+        oItem.setItemMeta(oMeta);
+
+        //Line 1
+        ReasonToReportMenu.setItem(0, Filler);
+        ReasonToReportMenu.setItem(1, Filler);
+        ReasonToReportMenu.setItem(2, Filler);
+
+        ReasonToReportMenu.setItem(3, Filler);
+        ReasonToReportMenu.setItem(4, info);
+        ReasonToReportMenu.setItem(5, Filler);
+
+        ReasonToReportMenu.setItem(6, Filler);
+        ReasonToReportMenu.setItem(7, Filler);
+        ReasonToReportMenu.setItem(8, Filler);
+
+        //Line 2
+        ReasonToReportMenu.setItem(9, Filler);
+        ReasonToReportMenu.setItem(10, Filler);
+
+        ReasonToReportMenu.setItem(11, HarassmentItem);
+        ReasonToReportMenu.setItem(12, Filler);
+        ReasonToReportMenu.setItem(13, Filler);
+        ReasonToReportMenu.setItem(14, Filler);
+        ReasonToReportMenu.setItem(15, XrayItem);
+
+        ReasonToReportMenu.setItem(16, Filler);
+        ReasonToReportMenu.setItem(17, Filler);
+
+        //Line 3
+        ReasonToReportMenu.setItem(18, Filler);
+        ReasonToReportMenu.setItem(19, Filler);
+        ReasonToReportMenu.setItem(20, Filler);
+        ReasonToReportMenu.setItem(21, Filler);
+
+        ReasonToReportMenu.setItem(22, CombatItem);
+
+        ReasonToReportMenu.setItem(23, Filler);
+        ReasonToReportMenu.setItem(24, Filler);
+        ReasonToReportMenu.setItem(25, Filler);
+        ReasonToReportMenu.setItem(26, Filler);
+
+        //Line 4
+        ReasonToReportMenu.setItem(27, Filler);
+        ReasonToReportMenu.setItem(28, Filler);
+
+        ReasonToReportMenu.setItem(29, beItem);
+        ReasonToReportMenu.setItem(30, Filler);
+        ReasonToReportMenu.setItem(31, Filler);
+        ReasonToReportMenu.setItem(32, Filler);
+        ReasonToReportMenu.setItem(33, oItem);
+
+        ReasonToReportMenu.setItem(34, Filler);
+        ReasonToReportMenu.setItem(35, Filler);
+
+        //Line 5
+
+        ReasonToReportMenu.setItem(36, Filler);
+        ReasonToReportMenu.setItem(37, Filler);
+        ReasonToReportMenu.setItem(38, Filler);
+        ReasonToReportMenu.setItem(39, Filler);
+        ReasonToReportMenu.setItem(40, Filler);
+        ReasonToReportMenu.setItem(41, Filler);
+        ReasonToReportMenu.setItem(42, Filler);
+        ReasonToReportMenu.setItem(43, Filler);
+        ReasonToReportMenu.setItem(44, Filler);
+
+
+        player1.openInventory(ReasonToReportMenu);
+    }
+
+    public static void openReportConfirmMenu(Player player1, String whoToBan, String whyToBan){
+
+        //Player to be banned
+        String banMe = whoToBan;
+        String whyBanMe = whyToBan;
+
+        //Open up ban menu
+        Inventory reportPlayerMenu = Bukkit.createInventory(player1, 9, ChatColor.RED + "Confirm Report");
+
+        //Create Filler thing
+
+        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
+        ItemMeta fMeta = filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        filler.setItemMeta(fMeta);
+
+        //Ban Option
+        ItemStack ban = new ItemStack(Material.WOODEN_AXE, 1);
+        ItemMeta ban_meta = ban.getItemMeta();
+        ban_meta.setDisplayName(ChatColor.DARK_GREEN + "Ban");
+        ban.setItemMeta(ban_meta);
+        reportPlayerMenu.setItem(0, ban);
+
+        //Add fillers
+
+        reportPlayerMenu.setItem(1, filler);
+        reportPlayerMenu.setItem(2, filler);
+        reportPlayerMenu.setItem(3, filler);
+
+        //Add player
+        ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD, 1);
+        ItemMeta player_meta = playerHead.getItemMeta();
+        player_meta.setDisplayName(banMe + "," + whyBanMe);
+        ArrayList<String> PHlore = new ArrayList<>();
+        PHlore.add(banMe);
+        PHlore.add(whyBanMe);
+        player_meta.setLore(PHlore);
+        playerHead.setItemMeta(player_meta);
+        reportPlayerMenu.setItem(4, playerHead);
+
+        //Add fillers
+
+        reportPlayerMenu.setItem(5, filler);
+        reportPlayerMenu.setItem(6, filler);
+        reportPlayerMenu.setItem(7, filler);
+
+        //Cancel option
+        ItemStack cancel = new ItemStack(Material.BARRIER, 1);
+        ItemMeta cancel_meta = cancel.getItemMeta();
+        cancel_meta.setDisplayName(ChatColor.RED + "Close");
+        cancel.setItemMeta(cancel_meta);
+        ArrayList<String> cLore = new ArrayList<>();
+        cLore.add(ChatColor.LIGHT_PURPLE + "Close the current menu");
+        cancel_meta.setLore(cLore);
+        reportPlayerMenu.setItem(8, cancel);
+
+        player1.openInventory(reportPlayerMenu);
     }
 
 

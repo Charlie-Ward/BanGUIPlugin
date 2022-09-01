@@ -1,6 +1,5 @@
 package bangui.bangui.listeners;
 
-import bangui.bangui.BanGUI;
 import bangui.bangui.utils.BanMenuUtils;
 import org.bukkit.BanList;
 import org.bukkit.Bukkit;
@@ -13,8 +12,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 
 public class BanInventoryListener implements Listener {

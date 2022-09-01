@@ -1,19 +1,14 @@
 package bangui.bangui.listeners;
 
-import bangui.bangui.BanGUI;
 import bangui.bangui.utils.BanMenuUtils;
-import org.bukkit.BanList;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
-import java.util.ArrayList;
 
 
 public class BanTimeListener implements Listener{

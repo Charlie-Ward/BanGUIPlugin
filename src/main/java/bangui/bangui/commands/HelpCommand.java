@@ -14,24 +14,30 @@ public class HelpCommand implements CommandExecutor {
         if (sender instanceof Player){
             Player p = (Player) sender;
 
+            p.sendMessage(ChatColor.GOLD + "BanGUI Plugin Help -" + ChatColor.WHITE + " V1.3");
+
            if (p.isOp() == true){
 
-               p.sendMessage(ChatColor.GOLD + "BanGUI Plugin Help -" + ChatColor.WHITE + " V1.2.7");
+
 
                p.sendMessage(ChatColor.RED + "Commands");
 
                p.sendMessage(ChatColor.WHITE + "/staff");
                p.sendMessage(ChatColor.GRAY + "Opens the staff menu");
-               p.sendMessage(ChatColor.WHITE + "/checktopplayers");
-               p.sendMessage(ChatColor.GRAY + "Shows the players who can see OP players in the ban and kick menus");
+               p.sendMessage(ChatColor.WHITE + "/report");
+               p.sendMessage(ChatColor.GRAY + "Opens the player report menu");
                p.sendMessage(ChatColor.WHITE + "/bghelp");
                p.sendMessage(ChatColor.GRAY + "Shows all available commands");
 
 
            }else{
 
-                p.sendMessage(ChatColor.GOLD + "BanGUI Plugin Help");
-                p.sendMessage(ChatColor.RED + "There are currently no commands for un-opped players");
+               p.sendMessage(ChatColor.RED + "Commands");
+
+               p.sendMessage(ChatColor.WHITE + "/onlineplayers");
+               p.sendMessage(ChatColor.GRAY + "Opens the online players menu");
+               p.sendMessage(ChatColor.WHITE + "/report");
+               p.sendMessage(ChatColor.GRAY + "Opens the player report menu");
 
             }
 

@@ -9,14 +9,14 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
-public class BanReasonListener implements Listener {
+public class ReportReasonListener implements Listener {
 
     @EventHandler
     public void onMenuClick(InventoryClickEvent e){
 
         Player player = (Player) e.getWhoClicked();
 
-        if (e.getView().getTitle().equalsIgnoreCase(ChatColor.RED + "Player List")){
+        if (e.getView().getTitle().equalsIgnoreCase(ChatColor.GREEN + "Player List")){
 
             if (e.getCurrentItem().getType() == Material.PLAYER_HEAD){
 
@@ -27,16 +27,12 @@ public class BanReasonListener implements Listener {
 
                 if (e.getClick() == ClickType.LEFT){
 
-                    BanMenuUtils.BanReasonMenu(player, whoToBan);
+                    BanMenuUtils.ReportReasonMenu(player, whoToBan);
 
                 }
-            }else if (e.getCurrentItem().getType() == Material.BARRIER){
+            }else if (e.getCurrentItem().getType() == Material.BARRIER) {
 
                 player.closeInventory();
-
-            } else if (e.getCurrentItem().getType() == Material.OAK_DOOR) {
-
-                BanMenuUtils.StaffMainMenu(player);
 
             }
             e.setCancelled(true);

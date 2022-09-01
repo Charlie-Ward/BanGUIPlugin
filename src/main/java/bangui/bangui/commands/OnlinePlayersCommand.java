@@ -22,7 +22,7 @@ public class OnlinePlayersCommand implements CommandExecutor, Listener{
 
             }else{
 
-                p.sendMessage("A version of online players is coming soon for non staff");
+                BanMenuUtils.onlinePlayersNonStaff(p);
 
             }
 

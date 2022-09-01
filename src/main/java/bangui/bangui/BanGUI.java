@@ -20,6 +20,7 @@ public final class BanGUI extends JavaPlugin {
         getCommand("Staff").setExecutor(new StaffGUICommand());
         getCommand("onlineplayers").setExecutor(new OnlinePlayersCommand());
         getCommand("checktopplayers").setExecutor(new CheckTopPlayers());
+        getCommand("report").setExecutor(new ReportCommand());
 
         getServer().getPluginManager().registerEvents(new BanInventoryListener(), this);
         getServer().getPluginManager().registerEvents(new BanReasonListener(), this);
@@ -29,6 +30,8 @@ public final class BanGUI extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new TeleportListener(), this);
         getServer().getPluginManager().registerEvents(new KickInventoryListener(), this);
         getServer().getPluginManager().registerEvents(new OnlineStaffListener(), this);
+        getServer().getPluginManager().registerEvents(new ReportReasonListener(), this);
+        getServer().getPluginManager().registerEvents(new ReportConfirmListener(), this);
 
         getConfig().options().copyDefaults();
         saveDefaultConfig();

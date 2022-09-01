@@ -15,3 +15,5 @@ commands:
     description: Opens a list of online players
   checktopplayers:
     description: Check the players who can see the OP players in the ban and kick menus
+  report:
+    description: Opens the ReportGUI menu
