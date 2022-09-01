@@ -28,6 +28,7 @@ public final class BanGUI extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new OnlinePlayersListener(), this);
         getServer().getPluginManager().registerEvents(new TeleportListener(), this);
         getServer().getPluginManager().registerEvents(new KickInventoryListener(), this);
+        getServer().getPluginManager().registerEvents(new OnlineStaffListener(), this);
 
         getConfig().options().copyDefaults();
         saveDefaultConfig();

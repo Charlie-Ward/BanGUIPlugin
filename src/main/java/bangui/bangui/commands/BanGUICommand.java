@@ -1,6 +1,5 @@
 package bangui.bangui.commands;
 
-import bangui.bangui.utils.BanMenuUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

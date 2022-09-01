@@ -16,16 +16,12 @@ public class HelpCommand implements CommandExecutor {
 
            if (p.isOp() == true){
 
-               p.sendMessage(ChatColor.GOLD + "BanGUI Plugin Help -" + ChatColor.WHITE + " V1.2.5");
+               p.sendMessage(ChatColor.GOLD + "BanGUI Plugin Help -" + ChatColor.WHITE + " V1.2.7");
 
                p.sendMessage(ChatColor.RED + "Commands");
 
                p.sendMessage(ChatColor.WHITE + "/staff");
                p.sendMessage(ChatColor.GRAY + "Opens the staff menu");
-               p.sendMessage(ChatColor.WHITE + "/bangui");
-               p.sendMessage(ChatColor.GRAY + "Opens the Ban GUI");
-               p.sendMessage(ChatColor.WHITE + "/onlineplayers");
-               p.sendMessage(ChatColor.GRAY + "Show a list of all online players");
                p.sendMessage(ChatColor.WHITE + "/checktopplayers");
                p.sendMessage(ChatColor.GRAY + "Shows the players who can see OP players in the ban and kick menus");
                p.sendMessage(ChatColor.WHITE + "/bghelp");
