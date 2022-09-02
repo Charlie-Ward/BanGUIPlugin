@@ -5,15 +5,36 @@ api-version: 1.17
 authors: [ LousyBoi ]
 description: A simple BanGUI plugin for your spigot server
 commands:
-  bangui:
-    description: Opens the BanGUI menu
   BGhelp:
     description: show a list of commands
+    usage: /bghelp
   Staff:
     description: Opens the staff menu
+    usage: /staff
   onlineplayers:
     description: Opens a list of online players
+    usage: /onlineplayers
   checktopplayers:
     description: Check the players who can see the OP players in the ban and kick menus
+    usage: /checktopplayers
   report:
     description: Opens the ReportGUI menu
+    usage: /report
+  gmc:
+    description: Changes gamemode to creative
+    usage: /gmc
+  gma:
+    description: Changes gamemode to adventure
+    usage: /gma
+  gms:
+    description: Changes gamemode to survival
+    usage: /gms
+  gmsp:
+    description: Changes gamemode to spectator
+    usage: /gmsp
+  nv:
+    description: Gives player night vision for when spectating other players
+    usage: /nv
+  clearnv:
+    description: Clears the players night vision
+    usage: /clearnv

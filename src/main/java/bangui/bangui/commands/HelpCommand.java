@@ -26,6 +26,18 @@ public class HelpCommand implements CommandExecutor {
                p.sendMessage(ChatColor.GRAY + "Opens the staff menu");
                p.sendMessage(ChatColor.WHITE + "/report");
                p.sendMessage(ChatColor.GRAY + "Opens the player report menu");
+               p.sendMessage(ChatColor.WHITE + "/gmc");
+               p.sendMessage(ChatColor.GRAY + "Changes gamemode to creative");
+               p.sendMessage(ChatColor.WHITE + "/gma");
+               p.sendMessage(ChatColor.GRAY + "Changes gamemode to adventure");
+               p.sendMessage(ChatColor.WHITE + "/gms");
+               p.sendMessage(ChatColor.GRAY + "Changes gamemode to survival");
+               p.sendMessage(ChatColor.WHITE + "/gmsp");
+               p.sendMessage(ChatColor.GRAY + "Changes gamemode to spectator");
+               p.sendMessage(ChatColor.WHITE + "/nv");
+               p.sendMessage(ChatColor.GRAY + "Gives night vision to player for when trying to spectate other players");
+               p.sendMessage(ChatColor.WHITE + "/clearnv");
+               p.sendMessage(ChatColor.GRAY + "Clears the players night vision");
                p.sendMessage(ChatColor.WHITE + "/bghelp");
                p.sendMessage(ChatColor.GRAY + "Shows all available commands");
 
