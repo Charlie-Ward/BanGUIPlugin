@@ -14,7 +14,7 @@ public class HelpCommand implements CommandExecutor {
         if (sender instanceof Player){
             Player p = (Player) sender;
 
-            p.sendMessage(ChatColor.GOLD + "BanGUI Plugin Help -" + ChatColor.WHITE + " V1.3.1");
+            p.sendMessage(ChatColor.GOLD + "BanGUI Plugin Help -" + ChatColor.WHITE + " V1.3.2");
 
            if (p.isOp() == true){
 
