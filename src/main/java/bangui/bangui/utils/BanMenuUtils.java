@@ -407,7 +407,7 @@ public class BanMenuUtils {
         ArrayList<String> peLore = new ArrayList<>();
         peLore.add(banMe);
         peLore.add(whyBanMe);
-        peLore.add(ChatColor.LIGHT_PURPLE + "1 hour");
+        peLore.add(ChatColor.LIGHT_PURPLE + "Permanently");
         peMeta.setLore(peLore);
         permanent.setItemMeta(peMeta);
 
