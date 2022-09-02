@@ -6,6 +6,8 @@
 [![Spigot Version](https://img.shields.io/spiget/version/104948?style=for-the-badge)](https://www.spigotmc.org/resources/bangui.104948/)
 [![GitHub Commits](https://img.shields.io/github/commit-activity/m/Charlie-Ward/BanGUIPlugin?style=for-the-badge)](https://github.com/Charlie-Ward/BanGUIPlugin)
 
+### [Documentation](https://charlieward0101.gitbook.io/bangui/) ###
+
 ## What does it do?
 
 ###### BanGUI allows an easy way to staff a server. It currently features a player list, online staff list, a report menu, a kick menu, and a ban menu.
