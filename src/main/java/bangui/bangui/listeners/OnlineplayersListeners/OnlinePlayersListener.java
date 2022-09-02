@@ -1,4 +1,4 @@
-package bangui.bangui.listeners;
+package bangui.bangui.listeners.OnlineplayersListeners;
 
 import bangui.bangui.utils.BanMenuUtils;
 import org.bukkit.ChatColor;

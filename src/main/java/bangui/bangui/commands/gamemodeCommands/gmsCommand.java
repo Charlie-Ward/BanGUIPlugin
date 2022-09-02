@@ -1,27 +1,24 @@
-package bangui.bangui.commands;
+package bangui.bangui.commands.gamemodeCommands;
 
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
-
-
-
-public class BanGUICommand implements CommandExecutor, Listener {
+public class gmsCommand implements CommandExecutor, Listener{
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        if (sender instanceof Player) {
+        if (sender instanceof Player){
             Player p = (Player) sender;
 
             if (p.isOp()){
 
-                p.sendMessage(ChatColor.GRAY + "Please use the staff menu to access this now" + ChatColor.RED + "/staff");
-
+                p.setGameMode(GameMode.SURVIVAL);
 
             }else{
 
@@ -31,11 +28,11 @@ public class BanGUICommand implements CommandExecutor, Listener {
 
             }
 
-
         }
 
         return true;
+
     }
 
-
 }
+

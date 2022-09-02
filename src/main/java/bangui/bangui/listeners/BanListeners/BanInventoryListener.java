@@ -1,4 +1,4 @@
-package bangui.bangui.listeners;
+package bangui.bangui.listeners.BanListeners;
 
 import bangui.bangui.utils.BanMenuUtils;
 import org.bukkit.BanList;
