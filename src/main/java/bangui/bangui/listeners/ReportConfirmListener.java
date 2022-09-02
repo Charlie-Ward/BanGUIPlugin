@@ -61,7 +61,7 @@ public class ReportConfirmListener implements Listener {
 
                     if (all.isOp()) {
 
-                        all.sendMessage(ChatColor.GOLD + "[BanGUI Report Alert]" + ChatColor.RED + "Reported Player: " + ChatColor.WHITE + whoToBan + ChatColor.RED + " for: " + ChatColor.WHITE + whyToBan + ChatColor.RED + " by: " + ChatColor.WHITE + player.getDisplayName());
+                        all.sendMessage(ChatColor.GOLD + "[BanGUI Report Alert] " + ChatColor.RED + "Reported Player: " + ChatColor.WHITE + whoToBan + ChatColor.RED + " for: " + ChatColor.WHITE + whyToBan + ChatColor.RED + " by: " + ChatColor.WHITE + player.getDisplayName());
 
                     }
 
