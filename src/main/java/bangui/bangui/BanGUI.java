@@ -29,7 +29,6 @@ public final class BanGUI extends JavaPlugin {
         plugin = this;
 
         // Plugin startup logic
-        getCommand("BGhelp").setExecutor(new HelpCommand());
         getCommand("Staff").setExecutor(new StaffGUICommand());
         getCommand("onlineplayers").setExecutor(new OnlinePlayersCommand());
         getCommand("checktopplayers").setExecutor(new CheckTopPlayers());
