@@ -16,7 +16,11 @@ public class gmspCommand implements CommandExecutor, Listener{
         if (sender instanceof Player){
             Player p = (Player) sender;
 
-            if (p.isOp()){
+            if (p.hasPermission("bangui.gmsp")){
+
+                p.setGameMode(GameMode.SPECTATOR);
+
+            }else if(p.isOp()) {
 
                 p.setGameMode(GameMode.SPECTATOR);
 

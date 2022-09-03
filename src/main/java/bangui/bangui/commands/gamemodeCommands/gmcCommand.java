@@ -16,7 +16,11 @@ public class gmcCommand implements CommandExecutor, Listener{
         if (sender instanceof Player){
             Player p = (Player) sender;
 
-            if (p.isOp()){
+            if (p.hasPermission("bangui.gmc")){
+
+                p.setGameMode(GameMode.CREATIVE);
+
+            }else if(p.isOp()) {
 
                 p.setGameMode(GameMode.CREATIVE);
 

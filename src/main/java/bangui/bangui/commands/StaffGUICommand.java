@@ -16,7 +16,11 @@ public class StaffGUICommand implements CommandExecutor, Listener{
         if (sender instanceof Player){
             Player p = (Player) sender;
 
-            if (p.isOp()){
+            if (p.hasPermission("bangui.staff")){
+
+                BanMenuUtils.StaffMainMenu(p);
+
+            }else if(p.isOp()) {
 
                 BanMenuUtils.StaffMainMenu(p);
 

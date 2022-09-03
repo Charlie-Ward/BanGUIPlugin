@@ -17,7 +17,13 @@ public class nvCommand implements CommandExecutor, Listener{
         if (sender instanceof Player){
             Player p = (Player) sender;
 
-            if (p.isOp()){
+            if (p.hasPermission("bangui.nv")){
+
+                ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+                String commandToSend = "effect give " +  p.getDisplayName() + " minecraft:night_vision 1000000 100";
+                Bukkit.dispatchCommand(console, commandToSend);
+
+            }else if (p.isOp()) {
 
                 ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
                 String commandToSend = "effect give " +  p.getDisplayName() + " minecraft:night_vision 1000000 100";

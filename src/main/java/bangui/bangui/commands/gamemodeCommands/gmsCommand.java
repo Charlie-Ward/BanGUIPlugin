@@ -16,7 +16,11 @@ public class gmsCommand implements CommandExecutor, Listener{
         if (sender instanceof Player){
             Player p = (Player) sender;
 
-            if (p.isOp()){
+            if (p.hasPermission("bangui.gms")){
+
+                p.setGameMode(GameMode.SURVIVAL);
+
+            }else if (p.isOp()) {
 
                 p.setGameMode(GameMode.SURVIVAL);
 
