@@ -13,16 +13,16 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 public class ReportConfirmListener implements Listener {
 
     @EventHandler
-    public void onMenuClick(InventoryClickEvent e){
+    public void onMenuClick(InventoryClickEvent e) {
         Player player = (Player) e.getWhoClicked();
         //Check inventory
-        if (e.getView().getTitle().equalsIgnoreCase(ChatColor.RED + "Reason For Report")){
+        if (e.getView().getTitle().equalsIgnoreCase(ChatColor.RED + "Reason For Report")) {
             //make sure they clicked on a player head
-            if (e.getCurrentItem().getType() != Material.GRAY_STAINED_GLASS_PANE){
+            if (e.getCurrentItem().getType() != Material.GRAY_STAINED_GLASS_PANE) {
 
-                if (e.getCurrentItem().getType() != Material.BARRIER){
+                if (e.getCurrentItem().getType() != Material.BARRIER) {
 
-                    if (e.getCurrentItem().getType() != Material.PAPER){
+                    if (e.getCurrentItem().getType() != Material.PAPER) {
 
                         String whoToBan2 = e.getCurrentItem().getItemMeta().getDisplayName();
 
@@ -42,22 +42,25 @@ public class ReportConfirmListener implements Listener {
                 player.closeInventory();
 
             }
+
             e.setCancelled(true);
-        } else if(e.getView().getTitle().equalsIgnoreCase(ChatColor.RED + "Confirm Report")){
 
-            String whoToBan2 = e.getClickedInventory().getItem(4).getItemMeta().getDisplayName();
+        } else if (e.getView().getTitle().equalsIgnoreCase(ChatColor.RED + "Confirm Report")) {
 
-            String[] splitString = whoToBan2.split(",");
-            String whoToBan = splitString[0];
-            String whyToBan = splitString[1];
+            if (e.getCurrentItem().getType() == Material.WOODEN_AXE) {
 
-            //Date timeToBeBanned;
+                String whoToBan2 = e.getClickedInventory().getItem(4).getItemMeta().getDisplayName();
+                String[] splitString = whoToBan2.split(",");
+                String whoToBan = splitString[0];
+                String whyToBan = splitString[1];
 
-            String playerName = String.valueOf(player);
+                //Date timeToBeBanned;
 
-            String splitPlayerName = String.valueOf(playerName.split("="));
+                String playerName = String.valueOf(player);
 
-            for (Player all : Bukkit.getServer().getOnlinePlayers()){
+                String splitPlayerName = String.valueOf(playerName.split("="));
+
+                for (Player all : Bukkit.getServer().getOnlinePlayers()) {
 
                     if (all.isOp()) {
 
@@ -76,8 +79,11 @@ public class ReportConfirmListener implements Listener {
             }
 
             e.setCancelled(true);
+
         }
         //make it so they cant move items
 
     }
+
+}
 

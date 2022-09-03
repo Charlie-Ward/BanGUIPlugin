@@ -39,6 +39,7 @@ public final class BanGUI extends JavaPlugin {
         getCommand("gmsp").setExecutor(new gmspCommand());
         getCommand("nv").setExecutor(new nvCommand());
         getCommand("clearnv").setExecutor(new clearnvCommand());
+        getCommand("lockdown").setExecutor(new LockdownCommand());
 
         getServer().getPluginManager().registerEvents(new BanInventoryListener(), this);
         getServer().getPluginManager().registerEvents(new BanReasonListener(), this);

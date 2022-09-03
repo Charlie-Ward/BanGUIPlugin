@@ -58,6 +58,8 @@ public class TeleportListener implements Listener {
 
             }
 
+            e.setCancelled(true);
+
         }
 
     }

@@ -1530,7 +1530,7 @@ public class BanMenuUtils {
         //Ban Option
         ItemStack ban = new ItemStack(Material.WOODEN_AXE, 1);
         ItemMeta ban_meta = ban.getItemMeta();
-        ban_meta.setDisplayName(ChatColor.DARK_GREEN + "Ban");
+        ban_meta.setDisplayName(ChatColor.DARK_GREEN + "Report");
         ban.setItemMeta(ban_meta);
         reportPlayerMenu.setItem(0, ban);
 

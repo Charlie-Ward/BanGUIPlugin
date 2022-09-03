@@ -38,3 +38,7 @@ commands:
   clearnv:
     description: Clears the players night vision
     usage: /clearnv
+  lockdown:
+    description: Toggles the server's lockdown state
+    usage: /lockdown
+    permission: bangui.lockdown
