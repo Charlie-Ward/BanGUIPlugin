@@ -42,4 +42,6 @@ public class LockdownCommand implements CommandExecutor, Listener {
         return true;
     }
 
+	//Need player join event class here to initiate a kick of the player with the correct kick message
+
 }
