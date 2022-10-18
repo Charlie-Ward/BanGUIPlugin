@@ -41,6 +41,7 @@ public final class BanGUI extends JavaPlugin {
         getCommand("clearnv").setExecutor(new clearnvCommand());
         getCommand("lockdown").setExecutor(new LockdownCommand());
 
+
         getServer().getPluginManager().registerEvents(new BanInventoryListener(), this);
         getServer().getPluginManager().registerEvents(new BanReasonListener(), this);
         getServer().getPluginManager().registerEvents(new BanTimeListener(), this);
@@ -51,15 +52,24 @@ public final class BanGUI extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new OnlineStaffListener(), this);
         getServer().getPluginManager().registerEvents(new ReportReasonListener(), this);
         getServer().getPluginManager().registerEvents(new ReportConfirmListener(), this);
+        getServer().getPluginManager().registerEvents(new LockdownCommand(), this);
 
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 
         CustomConfig.setup();
-        CustomConfig.get().addDefault("Please seperate all players with a comma", "e.g Owner Players:LousyBoi,LousyAlt,LousyTwo");
-        CustomConfig.get().addDefault("Owner Players", "");
+        CustomConfig.get().addDefault("Please put your discord invite link below", "e.g https://discord.gg/pQbQcQ6y");
+        CustomConfig.get().addDefault("Discord Server Invite", "");
+        CustomConfig.get().addDefault("Please put a link to a place where users can find the rules to your server" ,"e.g https://myserver.org/rules");
+        CustomConfig.get().addDefault("Understand that this can also be a discord invite link", "like the previous setting");
+        CustomConfig.get().addDefault("Rules Link", "");
+        CustomConfig.get().addDefault("Please put a link to a place where users can appeal a ban on your server" ,"e.g https://myserver.org/appeal");
+        CustomConfig.get().addDefault("Understand that this can also be a discord invite link", "like the previous setting");
+        CustomConfig.get().addDefault("Appeal Link", "");
         CustomConfig.get().options().copyDefaults(true);
         CustomConfig.save();
+
+
 
     }
 

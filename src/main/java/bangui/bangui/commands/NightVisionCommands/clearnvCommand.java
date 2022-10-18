@@ -17,7 +17,7 @@ public class clearnvCommand implements CommandExecutor, Listener{
         if (sender instanceof Player){
             Player p = (Player) sender;
 
-            if (p.hasPermission("bangui.clearnv")){
+            if (p.hasPermission("bangui.nv")){
 
                 ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
                 String commandToSend = "effect clear " +  p.getDisplayName() + " minecraft:night_vision";

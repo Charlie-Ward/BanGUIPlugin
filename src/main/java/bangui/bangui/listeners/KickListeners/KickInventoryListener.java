@@ -1,5 +1,6 @@
 package bangui.bangui.listeners.KickListeners;
 
+import bangui.bangui.files.CustomConfig;
 import bangui.bangui.utils.BanMenuUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -9,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+
 
 public class KickInventoryListener implements Listener{
 
@@ -51,7 +53,8 @@ public class KickInventoryListener implements Listener{
                 }
 
                 ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
-                String command = "kick " + whoToKick2 + " You have been kicked please check over the server rules before rejoining";
+                String CommandForKick = (" You have been kicked for breaking a rule on this server. Please check out the rules before rejoining. " + CustomConfig.get().getString("Rules Link"));
+                String command = "kick " + whoToKick2 + CommandForKick;
                 Bukkit.dispatchCommand(console, command);
 
                 player.closeInventory();

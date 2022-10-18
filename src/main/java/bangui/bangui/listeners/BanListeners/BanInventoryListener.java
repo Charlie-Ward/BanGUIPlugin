@@ -1,5 +1,7 @@
 package bangui.bangui.listeners.BanListeners;
 
+import bangui.bangui.BanGUI;
+import bangui.bangui.files.CustomConfig;
 import bangui.bangui.utils.BanMenuUtils;
 import org.bukkit.BanList;
 import org.bukkit.Bukkit;
@@ -100,9 +102,10 @@ public class BanInventoryListener implements Listener {
 
             }
 
+            String BanReasonForKick = (" You were banned for " +  whyToBan + " for: " + timeToBeBanned + " by: " + player.getDisplayName() + ". " + CustomConfig.get().getString("Appeal Link"));
 
             ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
-            String command = "kick " + whoToBan + " You have been banned please relog to find out more information";
+            String command = "kick " + whoToBan + BanReasonForKick;
             Bukkit.dispatchCommand(console, command);
 
             player.closeInventory();

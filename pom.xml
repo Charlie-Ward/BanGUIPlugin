@@ -6,7 +6,7 @@
 
     <groupId>BanGUI</groupId>
     <artifactId>BanGUI</artifactId>
-    <version>1.3.5.14w</version>
+    <version>1.3.3</version>
     <packaging>jar</packaging>
 
     <name>BanGUI</name>
@@ -24,8 +24,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>16</source>
+                    <target>16</target>
                 </configuration>
             </plugin>
             <plugin>

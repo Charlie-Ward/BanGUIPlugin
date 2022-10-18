@@ -5,12 +5,10 @@ api-version: 1.17
 authors: [ LousyBoi ]
 description: A simple BanGUI plugin for your spigot server
 commands:
-  BGhelp:
-    description: show a list of commands
-    usage: /bghelp
   Staff:
     description: Opens the staff menu
     usage: /staff
+    permission: bangui.staff
   onlineplayers:
     description: Opens a list of online players
     usage: /onlineplayers
@@ -23,22 +21,28 @@ commands:
   gmc:
     description: Changes gamemode to creative
     usage: /gmc
+    permission: bangui.gmc
   gma:
     description: Changes gamemode to adventure
     usage: /gma
+    permission: bangui.gma
   gms:
     description: Changes gamemode to survival
     usage: /gms
+    permission: bangui.gms
   gmsp:
     description: Changes gamemode to spectator
     usage: /gmsp
+    permission: bangui.gmsp
   nv:
     description: Gives player night vision for when spectating other players
     usage: /nv
+    permission: bangui.nv
   clearnv:
     description: Clears the players night vision
     usage: /clearnv
+    permission: bangui.nv
   lockdown:
     description: Toggles the server's lockdown state
     usage: /lockdown
-    permission: bangui.lockdown
+    permission: bangui.lockdown, bangui.LogInDuringLockdown
