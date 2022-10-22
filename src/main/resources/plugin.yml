@@ -12,9 +12,6 @@ commands:
   onlineplayers:
     description: Opens a list of online players
     usage: /onlineplayers
-  checktopplayers:
-    description: Check the players who can see the OP players in the ban and kick menus
-    usage: /checktopplayers
   report:
     description: Opens the ReportGUI menu
     usage: /report
@@ -46,3 +43,7 @@ commands:
     description: Toggles the server's lockdown state
     usage: /lockdown
     permission: bangui.lockdown, bangui.LogInDuringLockdown
+  reload:
+    description: Reloads config
+    usage: /reload
+    permission: bangui.reload
