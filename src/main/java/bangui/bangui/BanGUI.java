@@ -3,10 +3,6 @@ package bangui.bangui;
 import bangui.bangui.commands.*;
 import bangui.bangui.commands.NightVisionCommands.clearnvCommand;
 import bangui.bangui.commands.NightVisionCommands.nvCommand;
-import bangui.bangui.commands.gamemodeCommands.gmaCommand;
-import bangui.bangui.commands.gamemodeCommands.gmcCommand;
-import bangui.bangui.commands.gamemodeCommands.gmsCommand;
-import bangui.bangui.commands.gamemodeCommands.gmspCommand;
 import bangui.bangui.files.CustomConfig;
 import bangui.bangui.listeners.*;
 import bangui.bangui.listeners.BanListeners.BanInventoryListener;
@@ -32,14 +28,12 @@ public final class BanGUI extends JavaPlugin {
         getCommand("Staff").setExecutor(new StaffGUICommand());
         getCommand("onlineplayers").setExecutor(new OnlinePlayersCommand());
         getCommand("report").setExecutor(new ReportCommand());
-        getCommand("gmc").setExecutor(new gmcCommand());
-        getCommand("gma").setExecutor(new gmaCommand());
-        getCommand("gms").setExecutor(new gmsCommand());
-        getCommand("gmsp").setExecutor(new gmspCommand());
         getCommand("nv").setExecutor(new nvCommand());
         getCommand("clearnv").setExecutor(new clearnvCommand());
         getCommand("lockdown").setExecutor(new LockdownCommand());
         getCommand("bgreload").setExecutor(new reloadCommand());
+        getCommand("banGUI").setExecutor(new banCommand());
+        getCommand("kickGUI").setExecutor(new kickCommand());
 
 
         getServer().getPluginManager().registerEvents(new BanInventoryListener(), this);

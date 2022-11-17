@@ -24,7 +24,6 @@
 ###### Permissions for other plugins such as LuckPerms
 ###### Server Lockdown Command that can only be done by the owner
 
-###### Maybe an owner password system to avoid owner being hacked
 
 ## Commands
 

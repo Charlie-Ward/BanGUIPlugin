@@ -99,13 +99,13 @@ public class LockdownCommand implements CommandExecutor, Listener {
     }
 
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent e){
+    public void onJoin(PlayerJoinEvent event){
 
         class LockDownKickState{
             public static boolean LockdownKickState = lockdown;
         }
 
-        Player player = e.getPlayer();
+        Player player = event.getPlayer();
         boolean kickLockdown = LockDownKickState.LockdownKickState;
 
 

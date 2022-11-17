@@ -477,6 +477,10 @@ public class BanMenuUtils {
         ItemMeta fMeta = filler.getItemMeta();
         fMeta.setDisplayName("");
 
+        ItemStack fillerT = new ItemStack(Material.MAGENTA_STAINED_GLASS_PANE);
+        ItemMeta fTMeta = fillerT.getItemMeta();
+        fTMeta.setDisplayName("");
+
         ItemStack info = new ItemStack(Material.PAPER);
         ItemMeta pMeta = info.getItemMeta();
         pMeta.setDisplayName(ChatColor.GOLD + "Staff Home");
@@ -534,17 +538,17 @@ public class BanMenuUtils {
         opPlayers.setItemMeta(oMeta);
 
         //Line 1
-        StaffMenu.setItem(0, filler);
-        StaffMenu.setItem(1, filler);
-        StaffMenu.setItem(2, filler);
+        StaffMenu.setItem(0, fillerT);
+        StaffMenu.setItem(1, fillerT);
+        StaffMenu.setItem(2, fillerT);
 
         StaffMenu.setItem(3, info);
-        StaffMenu.setItem(4, filler);
+        StaffMenu.setItem(4, fillerT);
         StaffMenu.setItem(5, close);
 
-        StaffMenu.setItem(6, filler);
-        StaffMenu.setItem(7, filler);
-        StaffMenu.setItem(8, filler);
+        StaffMenu.setItem(6, fillerT);
+        StaffMenu.setItem(7, fillerT);
+        StaffMenu.setItem(8, fillerT);
 
         //Line 2
         StaffMenu.setItem(9, filler);
@@ -590,17 +594,17 @@ public class BanMenuUtils {
 
         //Line 5
 
-        StaffMenu.setItem(36, filler);
-        StaffMenu.setItem(37, filler);
-        StaffMenu.setItem(38, filler);
-        StaffMenu.setItem(39, filler);
+        StaffMenu.setItem(36, fillerT);
+        StaffMenu.setItem(37, fillerT);
+        StaffMenu.setItem(38, fillerT);
+        StaffMenu.setItem(39, fillerT);
 
-        StaffMenu.setItem(40, filler);
+        StaffMenu.setItem(40, fillerT);
 
-        StaffMenu.setItem(41, filler);
-        StaffMenu.setItem(42, filler);
-        StaffMenu.setItem(43, filler);
-        StaffMenu.setItem(44, filler);
+        StaffMenu.setItem(41, fillerT);
+        StaffMenu.setItem(42, fillerT);
+        StaffMenu.setItem(43, fillerT);
+        StaffMenu.setItem(44, fillerT);
 
         player1.openInventory(StaffMenu);
 

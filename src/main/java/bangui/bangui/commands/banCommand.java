@@ -11,8 +11,7 @@ import org.bukkit.event.Listener;
 
 import java.util.Objects;
 
-
-public class ReportCommand implements CommandExecutor, Listener {
+public class banCommand implements CommandExecutor, Listener {
 
     public String[] args = {""};
     @Override

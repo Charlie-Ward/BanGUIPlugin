@@ -17,6 +17,7 @@ public class StaffMenuListener implements Listener {
 
         if (e.getView().getTitle().equalsIgnoreCase(ChatColor.GOLD + "Staff Menu")){
 
+            
             if (e.getCurrentItem().getType() == Material.IRON_DOOR){
 
                 BanMenuUtils.openBanMenu(player);

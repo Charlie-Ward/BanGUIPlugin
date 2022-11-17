@@ -15,22 +15,6 @@ commands:
   report:
     description: Opens the ReportGUI menu
     usage: /report
-  gmc:
-    description: Changes gamemode to creative
-    usage: /gmc
-    permission: bangui.gmc
-  gma:
-    description: Changes gamemode to adventure
-    usage: /gma
-    permission: bangui.gma
-  gms:
-    description: Changes gamemode to survival
-    usage: /gms
-    permission: bangui.gms
-  gmsp:
-    description: Changes gamemode to spectator
-    usage: /gmsp
-    permission: bangui.gmsp
   nv:
     description: Gives player night vision for when spectating other players
     usage: /nv
@@ -47,3 +31,11 @@ commands:
     description: Reloads config
     usage: /bgreload
     permission: bangui.reload
+  banGUI:
+    description: Opens BanGUI
+    usage: /banGUI
+    permission: bangui.banMenu
+  kickGUI:
+    description: Opens KickGUI
+    usage: /kickGUI
+    permission: bangui.kickMenu
