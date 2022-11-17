@@ -19,17 +19,18 @@ public class kickCommand implements CommandExecutor, Listener {
 
         if (sender instanceof Player) {
             Player p = (Player) sender;
+            if (p.hasPermission("bangui.kickMenu")) {
+                if (args.length == 0) {
+                    p.sendMessage(ChatColor.RED + "Please provide a username");
+                } else {
+                    String whoToBan = args[0];
+                    for (Player all : Bukkit.getServer().getOnlinePlayers()) {
 
-            if (args.length == 0){
-                p.sendMessage(ChatColor.RED + "Please provide a username");
-            }else {
-                String whoToBan = args[0];
-                for (Player all : Bukkit.getServer().getOnlinePlayers()){
-
-                    if (Objects.equals(whoToBan, all.getDisplayName())){
-                        BanMenuUtils.BanReasonMenu(p, whoToBan);
-                    }else {
-                        p.sendMessage(ChatColor.RED + "Please input a correct username");
+                        if (Objects.equals(whoToBan, all.getDisplayName())) {
+                            BanMenuUtils.BanReasonMenu(p, whoToBan);
+                        } else {
+                            p.sendMessage(ChatColor.RED + "Please input a correct username");
+                        }
                     }
                 }
             }
