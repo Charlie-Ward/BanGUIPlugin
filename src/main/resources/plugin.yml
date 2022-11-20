@@ -9,9 +9,6 @@ commands:
     description: Opens the staff menu
     usage: /staff
     permission: bangui.staff
-  onlineplayers:
-    description: Opens a list of online players
-    usage: /onlineplayers
   report:
     description: Opens the ReportGUI menu
     usage: /report
@@ -39,3 +36,7 @@ commands:
     description: Opens KickGUI
     usage: /kickGUI
     permission: bangui.kickMenu
+  sc:
+    description: Talks in the staff chat
+    usage: /sc
+    permission: bangui.staffchat

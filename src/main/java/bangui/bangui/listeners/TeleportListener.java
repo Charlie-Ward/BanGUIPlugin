@@ -50,7 +50,7 @@ public class TeleportListener implements Listener {
                         String whoToTeleport = e.getCurrentItem().getItemMeta().getDisplayName();
                         String whoToTeleport2 = player.getDisplayName();
 
-                        all.sendMessage(ChatColor.GOLD + "[BanGUI Teleport Alert] " + ChatColor.RED + "Player: " + ChatColor.WHITE + whoToTeleport2 + ChatColor.RED + " teleported to: " + ChatColor.WHITE + whoToTeleport );
+                        all.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Player: " + ChatColor.WHITE + whoToTeleport2 + ChatColor.RED + " teleported to: " + ChatColor.WHITE + whoToTeleport );
 
                     }
 

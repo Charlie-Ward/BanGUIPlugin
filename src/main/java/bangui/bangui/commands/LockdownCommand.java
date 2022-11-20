@@ -33,8 +33,8 @@ public class LockdownCommand implements CommandExecutor, Listener {
 
                     if (lockdown == false) {
 
-                        p.sendMessage(ChatColor.RED + "LOCKDOWN HAS BEEN ENABLED");
-                        p.sendMessage(ChatColor.WHITE + "All players without lockdown permissions have been kicked and will not be able to join until lockdown is disabled");
+                        p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "LOCKDOWN HAS BEEN ENABLED");
+                        p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "All players without lockdown permissions have been kicked and will not be able to join until lockdown is disabled");
                         lockdown = true;
 
                         for (Player all : Bukkit.getServer().getOnlinePlayers()) {
@@ -43,9 +43,8 @@ public class LockdownCommand implements CommandExecutor, Listener {
 
                                 if (all.getDisplayName() != p.getDisplayName()) {
 
-                                    all.sendMessage(ChatColor.RED + "A LOCKDOWN HAS BEEN ENABLED");
-                                    all.sendMessage(ChatColor.WHITE + "Please talk to " + p.getDisplayName() + " to find out why");
-                                    all.sendMessage(ChatColor.WHITE + "It was enabled at: " + timeOfLockdown + " by: " + p.getDisplayName());
+                                    all.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "A LOCKDOWN HAS BEEN ENABLED");
+                                    all.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Please talk to " + p.getDisplayName() + " to find out why");
                                 }
                             } else {
 
@@ -62,22 +61,24 @@ public class LockdownCommand implements CommandExecutor, Listener {
 
                     } else if (lockdown  == true) {
 
-                        p.sendMessage(ChatColor.RED + "LOCKDOWN HAS BEEN DISABLED");
-                        p.sendMessage(ChatColor.RED + "Please restart the server to allow players to rejoin");
+                        p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "LOCKDOWN HAS BEEN DISABLED");
+                        p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Please restart the server to allow players to rejoin");
                         lockdown = false;
 
                         for (Player all : Bukkit.getServer().getOnlinePlayers()) {
 
                             if (all.getDisplayName() != p.getDisplayName()) {
 
-                                all.sendMessage(ChatColor.RED + "A LOCKDOWN HAS BEEN DISABLED");
-                                all.sendMessage(ChatColor.WHITE + "Please restart the server to allow players to rejoin");
+                                all.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "A LOCKDOWN HAS BEEN DISABLED");
+                                all.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Please restart the server to allow players to rejoin");
                             }
 
                         }
 
                     }
 
+                }else{
+                    p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "You do not have correct permissions to use this feature");
                 }
 
             }
@@ -118,8 +119,8 @@ public class LockdownCommand implements CommandExecutor, Listener {
             if (player.hasPermission("bangui.LogInDuringLockdown")) {
 
                 System.out.println("Player is immune");
-                player.sendMessage(ChatColor.RED + "A LOCKDOWN IS IN PROGRESS");
-                player.sendMessage(ChatColor.WHITE + "No players without the correct permission are allowed to log in");
+                player.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "A LOCKDOWN IS IN PROGRESS");
+                player.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "No players without the correct permission are allowed to log in");
 
             } else {
 

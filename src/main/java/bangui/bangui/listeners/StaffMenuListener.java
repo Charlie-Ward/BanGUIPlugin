@@ -40,7 +40,7 @@ public class StaffMenuListener implements Listener {
 
             }else if (e.getCurrentItem().getType() == Material.WHITE_CONCRETE){
 
-                player.sendMessage(ChatColor.GOLD + "This feature is coming to the BanGUI plugin soon");
+                player.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "This feature is coming to the BanGUI plugin soon");
 
             }
 

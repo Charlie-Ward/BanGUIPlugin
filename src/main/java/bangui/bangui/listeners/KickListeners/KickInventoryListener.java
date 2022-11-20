@@ -46,7 +46,7 @@ public class KickInventoryListener implements Listener{
 
                     if (all.isOp()){
 
-                        all.sendMessage(ChatColor.GOLD + "[BanGUI Kick Alert] " + ChatColor.WHITE + player.getDisplayName() + ChatColor.RED + " kicked player: " + ChatColor.WHITE + whoToKick2);
+                        all.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + " Player: " + ChatColor.WHITE + whoToKick2 + ChatColor.RED + " kicked by " + ChatColor.WHITE + player.getDisplayName() );
 
                     }
 

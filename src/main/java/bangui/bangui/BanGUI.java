@@ -13,7 +13,12 @@ import bangui.bangui.listeners.OnlineplayersListeners.OnlinePlayersListener;
 import bangui.bangui.listeners.OnlineplayersListeners.OnlineStaffListener;
 import bangui.bangui.listeners.ReportListeners.ReportConfirmListener;
 import bangui.bangui.listeners.ReportListeners.ReportReasonListener;
+import bangui.bangui.utils.tabCompletes.staffChatCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public final class BanGUI extends JavaPlugin {
 
@@ -26,7 +31,6 @@ public final class BanGUI extends JavaPlugin {
 
         // Plugin startup logic
         getCommand("Staff").setExecutor(new StaffGUICommand());
-        getCommand("onlineplayers").setExecutor(new OnlinePlayersCommand());
         getCommand("report").setExecutor(new ReportCommand());
         getCommand("nv").setExecutor(new nvCommand());
         getCommand("clearnv").setExecutor(new clearnvCommand());
@@ -34,6 +38,8 @@ public final class BanGUI extends JavaPlugin {
         getCommand("bgreload").setExecutor(new reloadCommand());
         getCommand("banGUI").setExecutor(new banCommand());
         getCommand("kickGUI").setExecutor(new kickCommand());
+        getCommand("sc").setExecutor(new staffChat());
+        getCommand("sc").setTabCompleter(new staffChatCompleter());
 
 
         getServer().getPluginManager().registerEvents(new BanInventoryListener(), this);
@@ -66,6 +72,7 @@ public final class BanGUI extends JavaPlugin {
 
 
     }
+
 
     @Override
     public void onDisable() {

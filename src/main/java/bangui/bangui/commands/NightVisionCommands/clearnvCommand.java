@@ -30,11 +30,7 @@ public class clearnvCommand implements CommandExecutor, Listener{
                 Bukkit.dispatchCommand(console, commandToSend);
 
             }else{
-
-                p.sendMessage(ChatColor.RED + "This is only available to op players");
-                p.sendMessage(ChatColor.RED + "You are not an op player on this server");
-                p.sendMessage(ChatColor.RED + "If this is a mistake please contact a server admin");
-
+                p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "You do not have correct permissions to use this feature");
             }
 
         }
