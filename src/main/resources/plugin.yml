@@ -40,3 +40,8 @@ commands:
     description: Talks in the staff chat
     usage: /sc
     permission: bangui.staffchat
+  vanish:
+    description: Vanishes you from the world
+    usage: /vanish
+    permission: bangui.vanish
+    aliases: v

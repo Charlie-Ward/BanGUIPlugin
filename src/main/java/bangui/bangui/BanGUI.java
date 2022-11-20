@@ -3,6 +3,7 @@ package bangui.bangui;
 import bangui.bangui.commands.*;
 import bangui.bangui.commands.NightVisionCommands.clearnvCommand;
 import bangui.bangui.commands.NightVisionCommands.nvCommand;
+import bangui.bangui.events.JoinEventVanish;
 import bangui.bangui.files.CustomConfig;
 import bangui.bangui.listeners.*;
 import bangui.bangui.listeners.BanListeners.BanInventoryListener;
@@ -14,15 +15,18 @@ import bangui.bangui.listeners.OnlineplayersListeners.OnlineStaffListener;
 import bangui.bangui.listeners.ReportListeners.ReportConfirmListener;
 import bangui.bangui.listeners.ReportListeners.ReportReasonListener;
 import bangui.bangui.utils.tabCompletes.staffChatCompleter;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 public final class BanGUI extends JavaPlugin {
 
     private static BanGUI plugin;
+    public ArrayList<Player> invisibleList = new ArrayList<>();
 
     @Override
     public void onEnable() {
@@ -40,6 +44,7 @@ public final class BanGUI extends JavaPlugin {
         getCommand("kickGUI").setExecutor(new kickCommand());
         getCommand("sc").setExecutor(new staffChat());
         getCommand("sc").setTabCompleter(new staffChatCompleter());
+        getCommand("vanish").setExecutor(new vanishCommand(this));
 
 
         getServer().getPluginManager().registerEvents(new BanInventoryListener(), this);
@@ -53,6 +58,7 @@ public final class BanGUI extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ReportReasonListener(), this);
         getServer().getPluginManager().registerEvents(new ReportConfirmListener(), this);
         getServer().getPluginManager().registerEvents(new LockdownCommand(), this);
+        getServer().getPluginManager().registerEvents(new JoinEventVanish(this), this);
 
         getConfig().options().copyDefaults();
         saveDefaultConfig();
