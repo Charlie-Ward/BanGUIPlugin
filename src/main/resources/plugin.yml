@@ -45,3 +45,6 @@ commands:
     usage: /vanish
     permission: bangui.vanish
     aliases: v
+  freeze:
+    description: Freezes a player
+    usage: /freeze [Player]

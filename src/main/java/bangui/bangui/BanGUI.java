@@ -18,18 +18,19 @@ import bangui.bangui.utils.tabCompletes.staffChatCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
+import java.util.logging.Level;
 
 public final class BanGUI extends JavaPlugin {
 
     private static BanGUI plugin;
     public ArrayList<Player> invisibleList = new ArrayList<>();
+    public ArrayList<String> frozenList = new ArrayList<String>();
 
     @Override
     public void onEnable() {
+
+        getLogger().log(Level.INFO, "BanGUI Started");
 
         plugin = this;
 
@@ -45,6 +46,7 @@ public final class BanGUI extends JavaPlugin {
         getCommand("sc").setExecutor(new staffChat());
         getCommand("sc").setTabCompleter(new staffChatCompleter());
         getCommand("vanish").setExecutor(new vanishCommand(this));
+        getCommand("freeze").setExecutor(new freezeCommand(this));
 
 
         getServer().getPluginManager().registerEvents(new BanInventoryListener(), this);
@@ -59,6 +61,7 @@ public final class BanGUI extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ReportConfirmListener(), this);
         getServer().getPluginManager().registerEvents(new LockdownCommand(), this);
         getServer().getPluginManager().registerEvents(new JoinEventVanish(this), this);
+        getServer().getPluginManager().registerEvents(new freezeCommand(this),this);
 
         getConfig().options().copyDefaults();
         saveDefaultConfig();

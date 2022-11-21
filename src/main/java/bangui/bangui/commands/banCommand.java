@@ -9,11 +9,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class banCommand implements CommandExecutor, Listener {
 
     public String[] args = {""};
+    ArrayList<String> playersOnline = new ArrayList<String>();
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
@@ -25,12 +27,13 @@ public class banCommand implements CommandExecutor, Listener {
                 } else {
                     String whoToBan = args[0];
                     for (Player all : Bukkit.getServer().getOnlinePlayers()) {
-
-                        if (Objects.equals(whoToBan, all.getDisplayName())) {
-                            BanMenuUtils.BanReasonMenu(p, whoToBan);
-                        }else{
-                            p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Please input a correct username");
-                        }
+                        String playerName = all.getDisplayName();
+                        playersOnline.add(playerName);
+                    }
+                    if(playersOnline.contains(whoToBan)){
+                        BanMenuUtils.BanReasonMenu(p, whoToBan);
+                    }else{
+                        p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Please input a correct username");
                     }
                 }
             }else{

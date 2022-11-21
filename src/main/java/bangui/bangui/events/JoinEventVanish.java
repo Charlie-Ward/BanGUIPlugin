@@ -10,11 +10,8 @@ public class JoinEventVanish implements Listener {
 
     BanGUI plugin;
 
-    public JoinEventVanish(BanGUI plugin) {
-    }
-
-    public void JoinEvent(BanGUI plugin) {
-        this.plugin = plugin;
+    public JoinEventVanish(BanGUI banGUI) {
+        this.plugin = banGUI;
     }
 
     @EventHandler
