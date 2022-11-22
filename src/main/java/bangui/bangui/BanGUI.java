@@ -26,6 +26,7 @@ public final class BanGUI extends JavaPlugin {
     private static BanGUI plugin;
     public ArrayList<Player> invisibleList = new ArrayList<>();
     public ArrayList<String> frozenList = new ArrayList<String>();
+    public static boolean lockdown;
 
     @Override
     public void onEnable() {
@@ -39,7 +40,7 @@ public final class BanGUI extends JavaPlugin {
         getCommand("report").setExecutor(new ReportCommand());
         getCommand("nv").setExecutor(new nvCommand());
         getCommand("clearnv").setExecutor(new clearnvCommand());
-        getCommand("lockdown").setExecutor(new LockdownCommand());
+        getCommand("lockdown").setExecutor(new LockdownCommand(this));
         getCommand("bgreload").setExecutor(new reloadCommand());
         getCommand("banGUI").setExecutor(new banCommand());
         getCommand("kickGUI").setExecutor(new kickCommand());
@@ -59,7 +60,7 @@ public final class BanGUI extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new OnlineStaffListener(), this);
         getServer().getPluginManager().registerEvents(new ReportReasonListener(), this);
         getServer().getPluginManager().registerEvents(new ReportConfirmListener(), this);
-        getServer().getPluginManager().registerEvents(new LockdownCommand(), this);
+        getServer().getPluginManager().registerEvents(new LockdownCommand(this), this);
         getServer().getPluginManager().registerEvents(new JoinEventVanish(this), this);
         getServer().getPluginManager().registerEvents(new freezeCommand(this),this);
 

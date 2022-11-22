@@ -51,6 +51,8 @@ public class freezeCommand implements CommandExecutor, Listener{
                 }else{
                     player.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Only one argument is usable with this command");
                 }
+            }else{
+                player.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "You do not have correct permissions to use this feature");
             }
         }
 

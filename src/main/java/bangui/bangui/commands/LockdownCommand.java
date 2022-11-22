@@ -1,5 +1,6 @@
 package bangui.bangui.commands;
 
+import bangui.bangui.BanGUI;
 import bangui.bangui.files.CustomConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -11,129 +12,74 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.Date;
 
 public class LockdownCommand implements CommandExecutor, Listener {
 
-    public static boolean lockdown;
 
-    Date timeOfLockdown;
-    Player p;
+    BanGUI plugin;
+
+    public LockdownCommand(BanGUI plugin) {
+        this.plugin = plugin;
+    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-            if (sender instanceof Player) {
-
-                p = (Player) sender;
-                timeOfLockdown = new Date(System.currentTimeMillis());
-
-                if (p.hasPermission("bangui.lockdown")) {
-
-                    if (lockdown == false) {
-
-                        p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "LOCKDOWN HAS BEEN ENABLED");
-                        p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "All players without lockdown permissions have been kicked and will not be able to join until lockdown is disabled");
-                        lockdown = true;
-
-                        for (Player all : Bukkit.getServer().getOnlinePlayers()) {
-
-                            if (all.hasPermission("bangui.LogInDuringLockdown")) {
-
-                                if (all.getDisplayName() != p.getDisplayName()) {
-
-                                    all.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "A LOCKDOWN HAS BEEN ENABLED");
-                                    all.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Please talk to " + p.getDisplayName() + " to find out why");
-                                }
-                            } else {
-
-                                ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
-                                String commandKick = (" " + ChatColor.RED + " A lockdown has just started on this server." + ChatColor.WHITE + " Please stand by for more information " + CustomConfig.get().getString("Discord Server Invite"));
-                                String kickCommand = "kick " + all.getDisplayName() + commandKick;
-                                Bukkit.dispatchCommand(console, kickCommand);
-
-                            }
-
+        Player player = (Player) sender;
+        if (sender instanceof Player){
+            if (player.hasPermission("bangui.lockdown")){
+                Date startOfLockdown = new Date();
+                if(plugin.lockdown == false){
+                    plugin.lockdown = true;
+                    for (Player all : Bukkit.getOnlinePlayers()){
+                        if(all.hasPermission("bangui.LogInDuringLockdown")){
+                            all.sendMessage(ChatColor.RED + "[BanGUI]");
+                            all.sendMessage(ChatColor.RED + "A LOCKDOWN HAS BEEN ENABLED");
+                            all.sendMessage(ChatColor.WHITE + "Info:");
+                            all.sendMessage(ChatColor.RED + "   Enabled by " + ChatColor.WHITE + player.getDisplayName());
+                            all.sendMessage(ChatColor.RED + "   At: " + ChatColor.WHITE + startOfLockdown);
+                        }else{
+                            all.kickPlayer("A lockdown has started on this server. Please stand by for more information. " + CustomConfig.get().getString("Discord Server Invite"));
                         }
-
-                        System.out.println("The lockdown variable is set to " + lockdown);
-
-                    } else if (lockdown  == true) {
-
-                        p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "LOCKDOWN HAS BEEN DISABLED");
-                        p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Please restart the server to allow players to rejoin");
-                        lockdown = false;
-
-                        for (Player all : Bukkit.getServer().getOnlinePlayers()) {
-
-                            if (all.getDisplayName() != p.getDisplayName()) {
-
-                                all.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "A LOCKDOWN HAS BEEN DISABLED");
-                                all.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Please restart the server to allow players to rejoin");
-                            }
-
-                        }
-
                     }
-
                 }else{
-                    p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "You do not have correct permissions to use this feature");
+                    plugin.lockdown = false;
+                    for (Player all : Bukkit.getOnlinePlayers()){
+                        if(all.hasPermission("bangui.LogInDuringLockdown")){
+                            all.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Lockdown has been disabled");
+                            all.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Players can join back to the server");
+                        }
+                    }
                 }
-
-            }
-
-        System.out.println("Lockdown is now set to " + lockdown);
-            boolean lockdownState;
-            if (lockdown == true){
-                lockdownState = true;
             }else{
-                lockdownState = false;
+                player.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "You do not have correct permissions to use this feature");
             }
-
+        }else {
+            player.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "This command is only available for players");
+        }
 
         return true;
     }
 
-    public class LockDownState{
-        public static boolean LockdownStateVar = lockdown;
-    }
-
     @EventHandler
-    public void onJoin(PlayerJoinEvent event){
-
-        class LockDownKickState{
-            public static boolean LockdownKickState = lockdown;
-        }
-
-        Player player = event.getPlayer();
-        boolean kickLockdown = LockDownKickState.LockdownKickState;
-
-
-        System.out.println("Player has joined");
-        System.out.println("The lockdown variable is set to " + kickLockdown);
-
-        if (kickLockdown == true) {
-            System.out.println("A lockdown is active");
-
-            if (player.hasPermission("bangui.LogInDuringLockdown")) {
-
-                System.out.println("Player is immune");
-                player.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "A LOCKDOWN IS IN PROGRESS");
-                player.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "No players without the correct permission are allowed to log in");
-
-            } else {
-
-                System.out.println("Player should be kicked");
-                ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
-                String commandKick2 = (" " + ChatColor.RED + " A lockdown has just started on this server." + ChatColor.WHITE + " Please stand by for more information " + CustomConfig.get().getString("Discord Server Invite"));
-                String kickCommand2 = "kick " + player.getDisplayName() + commandKick2;
-                Bukkit.dispatchCommand(console, kickCommand2);
-                System.out.println(kickCommand2);
+    public void onJoin(PlayerJoinEvent event) {
+        if(plugin.lockdown == true){
+            if (!(event.getPlayer().hasPermission("bangui.LogInDuringLockdown"))) {
+                event.getPlayer().kickPlayer("A lockdown is currently in progress on this server. Please stand by for more information. " + CustomConfig.get().getString("Discord Server Invite"));
+            }else{
+                event.getPlayer().sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "A lockdown is currently active. No unauthorised players are able to join");
             }
         }
     }
 
-
+    @EventHandler
+    public void onLeave(PlayerQuitEvent e){
+        if(plugin.lockdown == true){
+            e.setQuitMessage("");
+        }
+    }
 
 }
