@@ -48,3 +48,4 @@ commands:
   freeze:
     description: Freezes a player
     usage: /freeze [Player]
+    permission: bangui.freeze
