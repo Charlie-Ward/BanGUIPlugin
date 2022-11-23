@@ -542,9 +542,9 @@ public class BanMenuUtils {
         StaffMenu.setItem(1, fillerT);
         StaffMenu.setItem(2, fillerT);
 
-        StaffMenu.setItem(3, info);
-        StaffMenu.setItem(4, fillerT);
-        StaffMenu.setItem(5, close);
+        StaffMenu.setItem(3, fillerT);
+        StaffMenu.setItem(4, info);
+        StaffMenu.setItem(5, fillerT);
 
         StaffMenu.setItem(6, fillerT);
         StaffMenu.setItem(7, fillerT);
@@ -580,31 +580,18 @@ public class BanMenuUtils {
 
         //Line 4
 
-        StaffMenu.setItem(27, filler);
-        StaffMenu.setItem(28, filler);
-        StaffMenu.setItem(29, vanish);
+        StaffMenu.setItem(27, fillerT);
+        StaffMenu.setItem(28, fillerT);
+        StaffMenu.setItem(29, fillerT);
 
-        StaffMenu.setItem(30, filler);
-        StaffMenu.setItem(31, filler);
-        StaffMenu.setItem(32, filler);
+        StaffMenu.setItem(30, fillerT);
+        StaffMenu.setItem(31, close);
+        StaffMenu.setItem(32, fillerT);
 
-        StaffMenu.setItem(33, opPlayers);
-        StaffMenu.setItem(34, filler);
-        StaffMenu.setItem(35, filler);
+        StaffMenu.setItem(33, fillerT);
+        StaffMenu.setItem(34, fillerT);
+        StaffMenu.setItem(35, fillerT);
 
-        //Line 5
-
-        StaffMenu.setItem(36, fillerT);
-        StaffMenu.setItem(37, fillerT);
-        StaffMenu.setItem(38, fillerT);
-        StaffMenu.setItem(39, fillerT);
-
-        StaffMenu.setItem(40, fillerT);
-
-        StaffMenu.setItem(41, fillerT);
-        StaffMenu.setItem(42, fillerT);
-        StaffMenu.setItem(43, fillerT);
-        StaffMenu.setItem(44, fillerT);
 
         player1.openInventory(StaffMenu);
 
