@@ -1,16 +1,9 @@
 package bangui.bangui;
 
-import bangui.bangui.commands.NightVisionCommands.clearnvCommand;
-import bangui.bangui.commands.NightVisionCommands.nvCommand;
-import bangui.bangui.commands.Player2Player.ReportCommand;
-import bangui.bangui.commands.Player2Player.banCommand;
-import bangui.bangui.commands.Player2Player.freezeCommand;
-import bangui.bangui.commands.Player2Player.kickCommand;
-import bangui.bangui.commands.Staff2Server.LockdownCommand;
-import bangui.bangui.commands.Staff2Server.StaffGUICommand;
-import bangui.bangui.commands.Staff2Server.reloadCommand;
-import bangui.bangui.commands.Staff2Server.vanishCommand;
-import bangui.bangui.commands.Staff2Staff.staffChat;
+import bangui.bangui.commands.Player2Player.*;
+import bangui.bangui.commands.NightVisionCommands.*;
+import bangui.bangui.commands.Staff2Server.*;
+import bangui.bangui.commands.Staff2Staff.*;
 import bangui.bangui.events.JoinEventVanish;
 import bangui.bangui.files.CustomConfig;
 import bangui.bangui.listeners.*;
