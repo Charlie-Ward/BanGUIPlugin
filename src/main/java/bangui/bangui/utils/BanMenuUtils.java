@@ -471,7 +471,7 @@ public class BanMenuUtils {
 
     public static void StaffMainMenu (Player player1){
 
-        Inventory StaffMenu = Bukkit.createInventory(player1, 45, ChatColor.GOLD + "Staff Menu");
+        Inventory StaffMenu = Bukkit.createInventory(player1, 36, ChatColor.GOLD + "Staff Menu");
 
         ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
         ItemMeta fMeta = filler.getItemMeta();
