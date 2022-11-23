@@ -1,4 +1,4 @@
-package bangui.bangui.commands;
+package bangui.bangui.commands.Staff2Staff;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

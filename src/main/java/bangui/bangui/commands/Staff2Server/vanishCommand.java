@@ -1,4 +1,4 @@
-package bangui.bangui.commands;
+package bangui.bangui.commands.Staff2Server;
 
 import bangui.bangui.BanGUI;
 import org.bukkit.Bukkit;
