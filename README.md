@@ -8,7 +8,9 @@
 
 ### [Documentation](https://charlieward0101.gitbook.io/bangui/) ###
 
-BanGUI is a plugin for a spigot minecraft server running spigot 1.17. It allows you to moderate your minecraft server with ease with features such as BanGUI, Player Reporting, Lockdown, Staff Chat & Freeze Player. For more info on individual features please look at the documentation
+BanGUI is a plugin for a spigot minecraft server running spigot 1.17. It allows you to moderate your minecraft server with ease with features such as BanGUI, Player Reporting, Lockdown, Staff Chat & Freeze Player. For more info on individual features please look at the documentation.
+
+Lots of features are still yet to come and any feature suggestions are more than welcome.
 
 ## Other Links
 
