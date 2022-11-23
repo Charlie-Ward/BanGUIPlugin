@@ -43,19 +43,6 @@ public class TeleportListener implements Listener {
 
                 }
 
-                for (Player all : Bukkit.getServer().getOnlinePlayers()){
-
-                    if (all.isOp()) {
-
-                        String whoToTeleport = e.getCurrentItem().getItemMeta().getDisplayName();
-                        String whoToTeleport2 = player.getDisplayName();
-
-                        all.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Player: " + ChatColor.WHITE + whoToTeleport2 + ChatColor.RED + " teleported to: " + ChatColor.WHITE + whoToTeleport );
-
-                    }
-
-                }
-
             }
 
             e.setCancelled(true);

@@ -49,6 +49,7 @@ public final class BanGUI extends JavaPlugin {
         getCommand("sc").setTabCompleter(new staffChatCompleter());
         getCommand("vanish").setExecutor(new vanishCommand(this));
         getCommand("freeze").setExecutor(new freezeCommand(this));
+        getCommand("randomTP").setExecutor(new randomTP());
 
 
         getServer().getPluginManager().registerEvents(new BanInventoryListener(), this);

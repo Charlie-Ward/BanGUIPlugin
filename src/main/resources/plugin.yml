@@ -49,3 +49,7 @@ commands:
     description: Freezes a player
     usage: /freeze [Player]
     permission: bangui.freeze
+  randomTP:
+    description: TPs you to a random player
+    usage: /randomTP
+    permission: bangui.randomTP
