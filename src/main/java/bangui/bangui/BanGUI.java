@@ -1,9 +1,6 @@
 package bangui.bangui;
 
 import bangui.bangui.commands.*;
-import bangui.bangui.commands.AllPlayer.ReportCommand;
-import bangui.bangui.commands.AllPlayer.banCommand;
-import bangui.bangui.commands.AllPlayer.kickCommand;
 import bangui.bangui.commands.NightVisionCommands.clearnvCommand;
 import bangui.bangui.commands.NightVisionCommands.nvCommand;
 import bangui.bangui.events.JoinEventVanish;

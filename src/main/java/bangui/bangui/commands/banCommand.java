@@ -1,4 +1,4 @@
-package bangui.bangui.commands.AllPlayer;
+package bangui.bangui.commands;
 
 import bangui.bangui.utils.BanMenuUtils;
 import org.bukkit.Bukkit;
@@ -12,7 +12,7 @@ import org.bukkit.event.Listener;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class kickCommand implements CommandExecutor, Listener {
+public class banCommand implements CommandExecutor, Listener {
 
     public String[] args = {""};
     ArrayList<String> playersOnline = new ArrayList<String>();
@@ -21,17 +21,17 @@ public class kickCommand implements CommandExecutor, Listener {
 
         if (sender instanceof Player) {
             Player p = (Player) sender;
-            if (p.hasPermission("bangui.kickMenu")) {
+            if (p.hasPermission("bangui.banMenu")) {
                 if (args.length == 0) {
                     p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Please provide a username");
                 } else {
-                    String whoToKick = args[0];
+                    String whoToBan = args[0];
                     for (Player all : Bukkit.getServer().getOnlinePlayers()) {
                         String playerName = all.getDisplayName();
                         playersOnline.add(playerName);
                     }
-                    if(playersOnline.contains(whoToKick)){
-                        BanMenuUtils.openPlayerMenuKick(p, whoToKick);
+                    if(playersOnline.contains(whoToBan)){
+                        BanMenuUtils.BanReasonMenu(p, whoToBan);
                     }else{
                         p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Please input a correct username");
                     }

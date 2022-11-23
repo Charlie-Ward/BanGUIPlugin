@@ -6,7 +6,7 @@
 
     <groupId>BanGUI</groupId>
     <artifactId>BanGUI</artifactId>
-    <version>1.6.10.1</version>
+    <version>1.6.10</version>
     <packaging>jar</packaging>
 
     <name>BanGUI</name>
