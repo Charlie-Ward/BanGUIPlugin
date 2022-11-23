@@ -26,7 +26,12 @@ public class randomTP implements CommandExecutor, Listener {
                     onlinePlayers.add(all);
                 }
                 randomTP obj = new randomTP();
-                System.out.println(obj.getRandomElement(onlinePlayers));
+                Player tpTo = obj.getRandomElement(onlinePlayers);
+                while (tpTo.getDisplayName() == player.getDisplayName()){
+                    tpTo = obj.getRandomElement(onlinePlayers);
+                }
+                player.teleport(tpTo);
+                player.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.GREEN + "Teleported you to player " + ChatColor.GOLD + tpTo.getDisplayName());
             }else{
                 player.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "You do not have correct permissions to use this feature");
             }
