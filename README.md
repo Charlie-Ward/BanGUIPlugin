@@ -8,33 +8,8 @@
 
 ### [Documentation](https://charlieward0101.gitbook.io/bangui/) ###
 
-## What does it do?
-
-###### BanGUI allows an easy way to staff a server. It currently features a player list, online staff list, a report menu, a kick menu, and a ban menu.
-
-## What will it do?
-
-###### The current expansion plans for BanGUI plugin are:
-
-###### Vanish
-###### Random Teleport
-###### Inventory See of other players
-###### Freezing of a player
-###### Staff Chat
-###### Permissions for other plugins such as LuckPerms
-###### Server Lockdown Command that can only be done by the owner
-
-
-## Commands
-
-###### /staff - opens the staff menu
-###### /help - shows available commands
+BanGUI is a plugin for a spigot minecraft server running spigot 1.17. It allows you to moderate your minecraft server with ease with features such as BanGUI, Player Reporting, Lockdown, Staff Chat & Freeze Player. For more info on individual features please look at the documentation
 
 ## Other Links
 
-###### https://www.spigotmc.org/resources/bangui.104948/ - Plugin on the spigot website
-
-## Authors
-
-###### This plugin was created by me if there are any bugs please let me know
-
+https://www.spigotmc.org/resources/bangui.104948/ - Plugin on the spigot website
