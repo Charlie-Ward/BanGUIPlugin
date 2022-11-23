@@ -1,4 +1,4 @@
-package bangui.bangui.commands;
+package bangui.bangui.commands.AllPlayer;
 
 import bangui.bangui.utils.BanMenuUtils;
 import org.bukkit.Bukkit;
