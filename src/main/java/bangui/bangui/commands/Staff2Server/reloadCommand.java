@@ -19,7 +19,7 @@ public class reloadCommand implements CommandExecutor, Listener {
 
             if (p.hasPermission("bangui.reload")){
                 CustomConfig.reload();
-                p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.GREEN + "Config Should Have Reloaded");
+                p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.GREEN + "Config Reloaded");
             }else{
                 p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "You do not have correct permissions to use this feature");
             }

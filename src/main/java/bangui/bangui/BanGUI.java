@@ -50,7 +50,7 @@ public final class BanGUI extends JavaPlugin {
         getCommand("vanish").setExecutor(new vanishCommand(this));
         getCommand("freeze").setExecutor(new freezeCommand(this));
         getCommand("randomTP").setExecutor(new randomTP());
-
+        getCommand("invsee").setExecutor(new invsee());
 
         getServer().getPluginManager().registerEvents(new BanInventoryListener(), this);
         getServer().getPluginManager().registerEvents(new BanReasonListener(), this);
