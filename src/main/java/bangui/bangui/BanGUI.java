@@ -15,6 +15,7 @@ import bangui.bangui.listeners.OnlineplayersListeners.OnlinePlayersListener;
 import bangui.bangui.listeners.OnlineplayersListeners.OnlineStaffListener;
 import bangui.bangui.listeners.ReportListeners.ReportConfirmListener;
 import bangui.bangui.listeners.ReportListeners.ReportReasonListener;
+import bangui.bangui.utils.UpdateChecker;
 import bangui.bangui.utils.tabCompletes.staffChatCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -32,12 +33,21 @@ public final class BanGUI extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        getLogger().log(Level.INFO, "BanGUI Started");
+        new UpdateChecker(this, 104948).getVersion(version -> {
+            if(this.getDescription().getVersion().equals(version)) {
+                getLogger().info("----------------------------------");
+                getLogger().info("There is no new update available");
+                getLogger().info("----------------------------------");
+            } else{
+                getLogger().info("--------------------------------");
+                getLogger().info("There is a new update available");
+                getLogger().info("--------------------------------");
+            }
+        });
 
         plugin = this;
 
         // Plugin startup logic
-        getCommand("Staff").setExecutor(new StaffGUICommand());
         getCommand("report").setExecutor(new ReportCommand());
         getCommand("nv").setExecutor(new nvCommand());
         getCommand("clearnv").setExecutor(new clearnvCommand());
@@ -51,6 +61,7 @@ public final class BanGUI extends JavaPlugin {
         getCommand("freeze").setExecutor(new freezeCommand(this));
         getCommand("randomTP").setExecutor(new randomTP());
         getCommand("invsee").setExecutor(new invsee());
+        getCommand("onlinePlayers").setExecutor(new onlinePlayers());
 
         getServer().getPluginManager().registerEvents(new BanInventoryListener(), this);
         getServer().getPluginManager().registerEvents(new BanReasonListener(), this);
@@ -70,7 +81,7 @@ public final class BanGUI extends JavaPlugin {
         saveDefaultConfig();
 
         CustomConfig.setup();
-        CustomConfig.get().addDefault("Please put your discord invite link below", "e.g https://discord.gg/pQbQcQ6y");
+        CustomConfig.get().addDefault("Please put your discord invite link below", "e.g https://discord.gg/serverInvite");
         CustomConfig.get().addDefault("Discord Server Invite", "");
         CustomConfig.get().addDefault("Please put a link to a place where users can find the rules to your server" ,"e.g https://myserver.org/rules");
         CustomConfig.get().addDefault("Understand that this can also be a discord invite link", "like the previous setting");

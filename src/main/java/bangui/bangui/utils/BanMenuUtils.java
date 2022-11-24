@@ -682,9 +682,6 @@ public class BanMenuUtils {
             ItemMeta meta = playerHead.getItemMeta();
             //Set player info on the item
             meta.setDisplayName(list.get(i).getDisplayName());
-            ArrayList<String> phLore = new ArrayList<>();
-            phLore.add(ChatColor.GOLD + "Is player op: " + ChatColor.LIGHT_PURPLE + list.get(i).isOp());
-            meta.setLore(phLore);
             playerHead.setItemMeta(meta);
             //Add player head to gui
 

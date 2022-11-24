@@ -9,6 +9,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
 import java.util.ArrayList;
@@ -64,7 +66,16 @@ public class freezeCommand implements CommandExecutor, Listener{
         Player player = (Player) event.getPlayer();
         if (plugin.frozenList.contains(player.getDisplayName())){
             event.setCancelled(true);
-            event.getPlayer().sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "You have been frozen by a staff member");
+            event.getPlayer().sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "You cannot move whilst frozen");
+        }
+    }
+
+    @EventHandler
+    void onPlayerChat(AsyncPlayerChatEvent event){
+        Player player = (Player) event.getPlayer();
+        if(plugin.frozenList.contains(player.getDisplayName())){
+            event.setCancelled(true);
+            event.getPlayer().sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "You cannot chat whilst frozen");
         }
     }
 

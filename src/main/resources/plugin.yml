@@ -5,10 +5,6 @@ api-version: 1.17
 authors: [ LousyBoi ]
 description: A simple BanGUI plugin for your spigot server
 commands:
-  Staff:
-    description: Opens the staff menu
-    usage: /staff
-    permission: bangui.staff
   report:
     description: Opens the ReportGUI menu
     usage: /report
@@ -57,3 +53,7 @@ commands:
     description: See other players inventories
     usage: /invsee [Target Player]
     permission: bangui.invsee
+  onlinePlayers:
+    description: Allows staff to see all online players
+    usage: /onlinePlayers
+    permission: bangui.onlinePlayers
