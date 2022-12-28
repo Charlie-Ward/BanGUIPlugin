@@ -16,6 +16,7 @@ import bangui.bangui.listeners.OnlineplayersListeners.OnlineStaffListener;
 import bangui.bangui.listeners.ReportListeners.ReportConfirmListener;
 import bangui.bangui.listeners.ReportListeners.ReportReasonListener;
 import bangui.bangui.utils.UpdateChecker;
+import bangui.bangui.utils.tabCompletes.broadcastCompleter;
 import bangui.bangui.utils.tabCompletes.staffChatCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -62,6 +63,8 @@ public final class BanGUI extends JavaPlugin {
         getCommand("randomTP").setExecutor(new randomTP());
         getCommand("invsee").setExecutor(new invsee());
         getCommand("onlinePlayers").setExecutor(new onlinePlayers());
+        getCommand("broadcast").setExecutor(new broadcastCommand());
+        getCommand("broadcast").setTabCompleter(new broadcastCompleter());
 
         getServer().getPluginManager().registerEvents(new BanInventoryListener(), this);
         getServer().getPluginManager().registerEvents(new BanReasonListener(), this);

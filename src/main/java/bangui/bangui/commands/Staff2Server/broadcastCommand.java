@@ -1,4 +1,5 @@
-package bangui.bangui.commands.Staff2Staff;
+package bangui.bangui.commands.Staff2Server;
+
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -12,7 +13,7 @@ import org.bukkit.event.Listener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class staffChat implements CommandExecutor, Listener {
+public class broadcastCommand implements CommandExecutor, TabCompleter ,Listener {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
@@ -21,7 +22,7 @@ public class staffChat implements CommandExecutor, Listener {
             return false;
         }
         Player p = (Player) sender;
-        if (!(p.hasPermission("bangui.staffchat"))){
+        if (!(p.hasPermission("bangui.broadcast"))){
             p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "You do not have correct permissions to use this feature");
             return false;
         }
@@ -29,16 +30,19 @@ public class staffChat implements CommandExecutor, Listener {
             p.sendMessage(ChatColor.BLUE + "[BanGUI] " + ChatColor.RED + "Message cannot be empty");
             return false;
         }
-        String mess = ChatColor.BLUE + "[BanGUI]" + ChatColor.YELLOW + "[SC] " + ChatColor.WHITE + p.getDisplayName() + ": ";
+        String mess = ChatColor.RED + "BROADCAST" + ": ";
         for (String s : args) {
             mess = mess + s + " ";
         }
         for (Player player : Bukkit.getOnlinePlayers()){
-            if (player.hasPermission("bangui.staffchat")){
                 player.sendMessage(mess);
-            }
         }
         return true;
     }
 
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+
+        return null;
+    }
 }

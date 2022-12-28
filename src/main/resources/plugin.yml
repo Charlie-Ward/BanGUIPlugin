@@ -57,3 +57,8 @@ commands:
     description: Allows staff to see all online players
     usage: /onlinePlayers
     permission: bangui.onlinePlayers
+  broadcast:
+    description: Broadcast a message to the whole server
+    usage: /broadcast [Message]
+    permission: bangui.broadcast
+    aliases: bc
