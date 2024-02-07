@@ -102,7 +102,7 @@ public class BanInventoryListener implements Listener {
 
             }
 
-            String BanReasonForKick = (" You were banned for " +  whyToBan + " for: " + timeToBeBanned + " by: " + player.getDisplayName() + ". " + CustomConfig.get().getString("Appeal Link"));
+            String BanReasonForKick = (" You were banned for " +  whyToBan + " unitl: " + timeToBeBanned + " by: " + player.getDisplayName() + ". " + CustomConfig.get().getString("Appeal Link"));
 
             ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
             String command = "kick " + whoToBan + BanReasonForKick;
